@@ -1,0 +1,235 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - alert [ref=e4]: 首頁 - 購物網站 - 購物網站
+    - generic [ref=e5]:
+      - banner [ref=e6]:
+        - generic [ref=e8]:
+          - link "購物網站" [ref=e9] [cursor=pointer]:
+            - /url: /
+          - navigation [ref=e10]:
+            - link "首頁" [ref=e11] [cursor=pointer]:
+              - /url: /
+            - link "所有商品" [ref=e12] [cursor=pointer]:
+              - /url: /products/category/all
+          - generic [ref=e13]:
+            - link [ref=e14] [cursor=pointer]:
+              - /url: /cart
+              - img [ref=e15]
+            - generic [ref=e17]:
+              - link "訂單查詢" [ref=e18] [cursor=pointer]:
+                - /url: /orders
+              - generic [ref=e19]: "|"
+              - button "登出" [ref=e20] [cursor=pointer]
+      - navigation [ref=e21]:
+        - generic [ref=e23]:
+          - button "🛒 購物網站" [ref=e24] [cursor=pointer]:
+            - generic [ref=e25]: 🛒
+            - generic [ref=e26]: 購物網站
+          - generic [ref=e27]:
+            - button "首頁" [ref=e28] [cursor=pointer]
+            - button "電子產品" [ref=e29] [cursor=pointer]
+            - button "服飾" [ref=e30] [cursor=pointer]
+            - button "居家生活" [ref=e31] [cursor=pointer]
+            - button "運動休閒" [ref=e32] [cursor=pointer]
+            - button "書籍文具" [ref=e33] [cursor=pointer]
+            - button "🛒 1" [ref=e34] [cursor=pointer]:
+              - text: 🛒
+              - generic [ref=e35]: "1"
+            - button "👤 測試使用者" [ref=e37] [cursor=pointer]:
+              - generic [ref=e38]: 👤
+              - generic [ref=e39]: 測試使用者
+      - main [ref=e40]:
+        - generic [ref=e41]:
+          - generic [ref=e44]:
+            - heading "購物網站" [level=1] [ref=e45]
+            - paragraph [ref=e46]: 探索我們精選的熱門產品，享受優質購物體驗
+            - generic [ref=e47]:
+              - button "立即購物" [ref=e48] [cursor=pointer]
+              - button "瞭解更多" [ref=e49] [cursor=pointer]
+          - generic [ref=e51]:
+            - generic [ref=e52]:
+              - heading "熱門商品" [level=2] [ref=e53]
+              - paragraph [ref=e54]: 精選最受歡迎的商品，為您帶來最佳選擇
+            - generic [ref=e56]:
+              - article [ref=e57] [cursor=pointer]:
+                - generic:
+                  - generic:
+                    - img "無線藍牙耳機 Pro"
+                  - generic [ref=e58]: 25% OFF
+                - generic:
+                  - heading "無線藍牙耳機 Pro" [level=3]
+                  - paragraph: 高品質音質，主動降噪，30小時續航
+                  - generic:
+                    - generic [ref=e59]: NT$2,990
+                    - generic [ref=e60]: NT$3,990
+                  - generic [ref=e61]: 庫存充足
+                - generic:
+                  - button "加入購物車" [ref=e63]
+                  - button "查看詳情" [ref=e64]
+              - article [ref=e65] [cursor=pointer]:
+                - generic:
+                  - generic:
+                    - img "智慧手錶 X1"
+                  - generic [ref=e66]: 25% OFF
+                - generic:
+                  - heading "智慧手錶 X1" [level=3]
+                  - paragraph: 健康監測，50+運動模式，7天續航
+                  - generic:
+                    - generic [ref=e67]: NT$5,990
+                    - generic [ref=e68]: NT$7,990
+                  - generic [ref=e69]: 庫存充足
+                - generic:
+                  - button "加入購物車" [ref=e71]
+                  - button "查看詳情" [ref=e72]
+              - article [ref=e73] [cursor=pointer]:
+                - generic:
+                  - generic:
+                    - img "經典牛仔外套"
+                  - generic [ref=e74]: 31% OFF
+                - generic:
+                  - heading "經典牛仔外套" [level=3]
+                  - paragraph: 純棉丹寧，經典設計，四季皆宜
+                  - generic:
+                    - generic [ref=e75]: NT$1,590
+                    - generic [ref=e76]: NT$2,290
+                  - generic [ref=e77]: 庫存充足
+                - generic:
+                  - button "加入購物車" [ref=e79]
+                  - button "查看詳情" [ref=e80]
+              - article [ref=e81] [cursor=pointer]:
+                - generic:
+                  - generic:
+                    - img "記憶枕"
+                  - generic [ref=e82]: 熱門
+                - generic:
+                  - heading "記憶枕" [level=3]
+                  - paragraph: 記憶棉，貼合頸部，透氣舒適
+                  - generic [ref=e83]: NT$1,290
+                  - generic [ref=e84]: 庫存充足
+                - generic:
+                  - button "加入購物車" [ref=e86]
+                  - button "查看詳情" [ref=e87]
+              - article [ref=e88] [cursor=pointer]:
+                - generic:
+                  - generic:
+                    - img "智能溫控電熱毯"
+                  - generic [ref=e89]: 熱門
+                - generic:
+                  - heading "智能溫控電熱毯" [level=3]
+                  - paragraph: 智能溫控，定時功能，可水洗
+                  - generic [ref=e90]: NT$1,890
+                  - generic [ref=e91]: 庫存充足
+                - generic:
+                  - button "加入購物車" [ref=e93]
+                  - button "查看詳情" [ref=e94]
+              - article [ref=e95] [cursor=pointer]:
+                - generic:
+                  - generic:
+                    - img "行動電源 20000mAh"
+                  - generic [ref=e96]: 熱門
+                - generic:
+                  - heading "行動電源 20000mAh" [level=3]
+                  - paragraph: 20000mAh大容量，PD快充
+                  - generic [ref=e97]: NT$1,290
+                  - generic [ref=e98]: 庫存充足
+                - generic:
+                  - button "加入購物車" [ref=e100]
+                  - button "查看詳情" [ref=e101]
+              - article [ref=e102] [cursor=pointer]:
+                - generic:
+                  - generic:
+                    - img "機械式鍵盤"
+                  - generic [ref=e103]: 18% OFF
+                - generic:
+                  - heading "機械式鍵盤" [level=3]
+                  - paragraph: Cherry軸，RGB背光，鋁合金
+                  - generic:
+                    - generic [ref=e104]: NT$3,290
+                    - generic [ref=e105]: NT$3,990
+                  - generic [ref=e106]: 庫存充足
+                - generic:
+                  - button "加入購物車" [ref=e108]
+                  - button "查看詳情" [ref=e109]
+              - article [ref=e110] [cursor=pointer]:
+                - generic:
+                  - generic:
+                    - img "USB-C 多功能擴充座"
+                  - generic [ref=e111]: 熱門
+                - generic:
+                  - heading "USB-C 多功能擴充座" [level=3]
+                  - paragraph: 7合1擴充，4K輸出，鋁合金
+                  - generic [ref=e112]: NT$1,590
+                  - generic [ref=e113]: 庫存充足
+                - generic:
+                  - button "加入購物車" [ref=e115]
+                  - button "查看詳情" [ref=e116]
+          - generic [ref=e119]:
+            - generic [ref=e120]:
+              - generic [ref=e122]: 🚚
+              - heading "快速配送" [level=3] [ref=e123]
+              - paragraph [ref=e124]: 滿千免運，快速送達
+            - generic [ref=e125]:
+              - generic [ref=e127]: 🔒
+              - heading "安全付款" [level=3] [ref=e128]
+              - paragraph [ref=e129]: 多種付款方式，安全有保障
+            - generic [ref=e130]:
+              - generic [ref=e132]: 💝
+              - heading "品質保證" [level=3] [ref=e133]
+              - paragraph [ref=e134]: 嚴選商品，品質有保障
+      - contentinfo [ref=e135]:
+        - generic [ref=e136]:
+          - generic [ref=e137]:
+            - generic [ref=e138]:
+              - heading "關於我們" [level=3] [ref=e139]
+              - paragraph [ref=e140]: 提供優質的購物體驗，精選商品，快速配送。
+            - generic [ref=e141]:
+              - heading "客戶服務" [level=3] [ref=e142]
+              - list [ref=e143]:
+                - listitem [ref=e144]:
+                  - link "常見問題" [ref=e145] [cursor=pointer]:
+                    - /url: "#"
+                - listitem [ref=e146]:
+                  - link "配送資訊" [ref=e147] [cursor=pointer]:
+                    - /url: "#"
+                - listitem [ref=e148]:
+                  - link "退換貨政策" [ref=e149] [cursor=pointer]:
+                    - /url: "#"
+                - listitem [ref=e150]:
+                  - link "聯絡我們" [ref=e151] [cursor=pointer]:
+                    - /url: "#"
+            - generic [ref=e152]:
+              - heading "購物資訊" [level=3] [ref=e153]
+              - list [ref=e154]:
+                - listitem [ref=e155]:
+                  - link "付款方式" [ref=e156] [cursor=pointer]:
+                    - /url: "#"
+                - listitem [ref=e157]:
+                  - link "會員權益" [ref=e158] [cursor=pointer]:
+                    - /url: "#"
+                - listitem [ref=e159]:
+                  - link "隱私權政策" [ref=e160] [cursor=pointer]:
+                    - /url: "#"
+                - listitem [ref=e161]:
+                  - link "使用條款" [ref=e162] [cursor=pointer]:
+                    - /url: "#"
+          - paragraph [ref=e164]: © 2025 購物網站. All rights reserved.
+  - generic:
+    - img
+  - generic:
+    - generic:
+      - generic:
+        - button "Go to parent" [disabled]
+        - button "Open in editor"
+        - button "Close"
+  - generic [ref=e165]:
+    - button "Toggle Nuxt DevTools" [ref=e166] [cursor=pointer]:
+      - img [ref=e167]
+    - generic "Page load time" [ref=e170]:
+      - generic [ref=e171]: "267"
+      - generic [ref=e172]: ms
+    - button "Toggle Component Inspector" [ref=e174] [cursor=pointer]:
+      - img [ref=e175]
+```

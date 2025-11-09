@@ -1,0 +1,67 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e3]:
+    - alert [ref=e4]: 會員註冊 - 購物網站 - 購物網站
+    - generic [ref=e6]:
+      - link "購物網站" [ref=e8]:
+        - /url: /
+      - generic [ref=e10]:
+        - heading "會員註冊" [level=2] [ref=e11]
+        - generic [ref=e12]:
+          - generic [ref=e13]:
+            - heading "會員註冊" [level=2] [ref=e14]
+            - paragraph [ref=e15]: 建立新帳號以享受完整購物體驗
+          - generic [ref=e16]:
+            - generic [ref=e17]: 姓名
+            - textbox "姓名" [ref=e18]:
+              - /placeholder: 請輸入您的姓名
+          - generic [ref=e19]:
+            - generic [ref=e20]: Email
+            - textbox "Email" [ref=e21]:
+              - /placeholder: your@email.com
+          - generic [ref=e22]:
+            - generic [ref=e23]: 手機號碼
+            - textbox "手機號碼" [ref=e24]:
+              - /placeholder: "0912345678"
+          - generic [ref=e25]:
+            - generic [ref=e26]: 密碼
+            - textbox "密碼" [ref=e27]:
+              - /placeholder: 至少 8 個字元，包含英文與數字
+          - generic [ref=e28]:
+            - generic [ref=e29]: 確認密碼
+            - textbox "確認密碼" [ref=e30]:
+              - /placeholder: 請再次輸入密碼
+          - generic [ref=e31]:
+            - checkbox "我已閱讀並同意 使用條款 及 隱私權政策" [active] [ref=e32]
+            - generic [ref=e33]:
+              - text: 我已閱讀並同意
+              - link "使用條款" [ref=e34]:
+                - /url: "#"
+              - text: 及
+              - link "隱私權政策" [ref=e35]:
+                - /url: "#"
+          - button "註冊" [disabled] [ref=e36]
+          - generic [ref=e37]:
+            - text: 已經有帳號？
+            - button "立即登入" [ref=e38] [cursor=pointer]
+      - link "← 返回首頁" [ref=e40]:
+        - /url: /
+  - generic:
+    - img
+  - generic:
+    - generic:
+      - generic:
+        - button "Go to parent" [disabled]
+        - button "Open in editor"
+        - button "Close"
+  - generic [ref=e41]:
+    - button "Toggle Nuxt DevTools" [ref=e42] [cursor=pointer]:
+      - img [ref=e43]
+    - generic "Page load time" [ref=e46]:
+      - generic [ref=e47]: "337"
+      - generic [ref=e48]: ms
+    - button "Toggle Component Inspector" [ref=e50] [cursor=pointer]:
+      - img [ref=e51]
+```

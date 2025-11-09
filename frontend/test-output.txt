@@ -1,0 +1,72 @@
+
+[1m[46m RUN [49m[22m [36mv4.0.3 [39m[90m/home/jarvis/project/idea/as/ecommerce/frontend[39m
+
+
+[31m⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Suites 5 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[41m[1m FAIL [22m[49m tests/unit/stores/auth.test.ts[2m [ tests/unit/stores/auth.test.ts ][22m
+[31m[1mError[22m: Cannot find module '~/stores/auth' imported from '/home/jarvis/project/idea/as/ecommerce/frontend/tests/unit/stores/auth.test.ts'[39m
+[36m [2m❯[22m tests/unit/stores/auth.test.ts:[2m7:1[22m[39m
+    [90m  5| [39m[35mimport[39m { describe[33m,[39m it[33m,[39m expect[33m,[39m beforeEach[33m,[39m vi } [35mfrom[39m [32m'vitest'[39m
+    [90m  6| [39m[35mimport[39m { setActivePinia[33m,[39m createPinia } [35mfrom[39m [32m'pinia'[39m
+    [90m  7| [39m[35mimport[39m { useAuthStore } [35mfrom[39m [32m'~/stores/auth'[39m
+    [90m   | [39m[31m^[39m
+    [90m  8| [39m
+    [90m  9| [39m[90m// Mock $fetch[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m tests/unit/stores/cart.test.ts[2m [ tests/unit/stores/cart.test.ts ][22m
+[31m[1mError[22m: Cannot find module '~/stores/cart' imported from '/home/jarvis/project/idea/as/ecommerce/frontend/tests/unit/stores/cart.test.ts'[39m
+[36m [2m❯[22m tests/unit/stores/cart.test.ts:[2m7:1[22m[39m
+    [90m  5| [39m[35mimport[39m { describe[33m,[39m it[33m,[39m expect[33m,[39m beforeEach } [35mfrom[39m [32m'vitest'[39m
+    [90m  6| [39m[35mimport[39m { setActivePinia[33m,[39m createPinia } [35mfrom[39m [32m'pinia'[39m
+    [90m  7| [39m[35mimport[39m { useCartStore } [35mfrom[39m [32m'~/stores/cart'[39m
+    [90m   | [39m[31m^[39m
+    [90m  8| [39m[35mimport[39m type { [33mProduct[39m } [35mfrom[39m [32m'~/types/product'[39m
+    [90m  9| [39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m tests/unit/stores/order.test.ts[2m [ tests/unit/stores/order.test.ts ][22m
+[31m[1mError[22m: Cannot find module '~/stores/order' imported from '/home/jarvis/project/idea/as/ecommerce/frontend/tests/unit/stores/order.test.ts'[39m
+[36m [2m❯[22m tests/unit/stores/order.test.ts:[2m7:1[22m[39m
+    [90m  5| [39m[35mimport[39m { describe[33m,[39m it[33m,[39m expect[33m,[39m beforeEach[33m,[39m vi } [35mfrom[39m [32m'vitest'[39m
+    [90m  6| [39m[35mimport[39m { setActivePinia[33m,[39m createPinia } [35mfrom[39m [32m'pinia'[39m
+    [90m  7| [39m[35mimport[39m { useOrderStore } [35mfrom[39m [32m'~/stores/order'[39m
+    [90m   | [39m[31m^[39m
+    [90m  8| [39m[35mimport[39m type { [33mCreateOrderPayload[39m[33m,[39m [33mOrder[39m } [35mfrom[39m [32m'~/types/order'[39m
+    [90m  9| [39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m tests/unit/utils/currency.test.ts[2m [ tests/unit/utils/currency.test.ts ][22m
+[31m[1mError[22m: Cannot find module '~/utils/currency' imported from '/home/jarvis/project/idea/as/ecommerce/frontend/tests/unit/utils/currency.test.ts'[39m
+[36m [2m❯[22m tests/unit/utils/currency.test.ts:[2m6:1[22m[39m
+    [90m  4| [39m
+    [90m  5| [39m[35mimport[39m { describe[33m,[39m it[33m,[39m expect } [35mfrom[39m [32m'vitest'[39m
+    [90m  6| [39m[35mimport[39m { formatCurrency } [35mfrom[39m [32m'~/utils/currency'[39m
+    [90m   | [39m[31m^[39m
+    [90m  7| [39m
+    [90m  8| [39m[34mdescribe[39m([32m'formatCurrency'[39m[33m,[39m () [33m=>[39m {
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m tests/unit/utils/validation.test.ts[2m [ tests/unit/utils/validation.test.ts ][22m
+[31m[1mError[22m: Cannot find module '~/utils/validation' imported from '/home/jarvis/project/idea/as/ecommerce/frontend/tests/unit/utils/validation.test.ts'[39m
+[36m [2m❯[22m tests/unit/utils/validation.test.ts:[2m6:1[22m[39m
+    [90m  4| [39m
+    [90m  5| [39m[35mimport[39m { describe[33m,[39m it[33m,[39m expect } [35mfrom[39m [32m'vitest'[39m
+    [90m  6| [39m[35mimport[39m {
+    [90m   | [39m[31m^[39m
+    [90m  7| [39m  loginSchema[33m,[39m
+    [90m  8| [39m  registerSchema[33m,[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯[22m[39m
+
+
+[2m Test Files [22m [1m[31m5 failed[39m[22m[90m (5)[39m
+[2m      Tests [22m [2mno tests[22m
+[2m   Start at [22m 22:12:09
+[2m   Duration [22m 221ms[2m (transform 259ms, setup 142ms, collect 0ms, tests 0ms, environment 1ms, prepare 36ms)[22m
+

@@ -1,0 +1,52 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - alert [ref=e4]: 會員登入 - 購物網站 - 購物網站
+    - generic [ref=e6]:
+      - link "購物網站" [ref=e8]:
+        - /url: /
+      - generic [ref=e10]:
+        - heading "會員登入" [level=2] [ref=e11]
+        - generic [ref=e12]:
+          - generic [ref=e13]:
+            - heading "會員登入" [level=2] [ref=e14]
+            - paragraph [ref=e15]: 使用您的帳號登入以享受更多服務
+          - generic [ref=e16]:
+            - generic [ref=e17]: Email
+            - textbox "Email" [ref=e18]:
+              - /placeholder: your@email.com
+          - generic [ref=e19]:
+            - generic [ref=e20]: 密碼
+            - textbox "密碼" [ref=e21]:
+              - /placeholder: ••••••••
+          - generic [ref=e22]:
+            - generic [ref=e23]:
+              - checkbox "記住我" [ref=e24]
+              - generic [ref=e25]: 記住我
+            - link "忘記密碼？" [ref=e26]:
+              - /url: "#"
+          - button "登入" [ref=e27] [cursor=pointer]
+          - generic [ref=e28]:
+            - text: 還沒有帳號？
+            - button "立即註冊" [ref=e29] [cursor=pointer]
+      - link "← 返回首頁" [ref=e31]:
+        - /url: /
+  - generic:
+    - img
+  - generic:
+    - generic:
+      - generic:
+        - button "Go to parent" [disabled]
+        - button "Open in editor"
+        - button "Close"
+  - generic [ref=e32]:
+    - button "Toggle Nuxt DevTools" [ref=e33] [cursor=pointer]:
+      - img [ref=e34]
+    - generic "Page load time" [ref=e37]:
+      - generic [ref=e38]: "343"
+      - generic [ref=e39]: ms
+    - button "Toggle Component Inspector" [ref=e41] [cursor=pointer]:
+      - img [ref=e42]
+```
