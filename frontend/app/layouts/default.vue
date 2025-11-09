@@ -9,13 +9,23 @@
             購物網站
           </NuxtLink>
 
-          <!-- Navigation -->
+          <!-- Desktop Navigation -->
           <nav class="hidden md:flex items-center gap-6">
-            <NuxtLink to="/" class="text-gray-700 hover:text-primary-600 transition-colors">
+            <NuxtLink
+              to="/"
+              class="text-gray-700 hover:text-primary-600 transition-colors font-medium"
+              :class="{ 'text-primary-600': route.path === '/' }"
+            >
               首頁
             </NuxtLink>
-            <NuxtLink to="/products/category/all" class="text-gray-700 hover:text-primary-600 transition-colors">
-              所有商品
+            <NuxtLink
+              v-for="category in categories"
+              :key="category.id"
+              :to="`/products/category/${category.slug}`"
+              class="text-gray-700 hover:text-primary-600 transition-colors font-medium"
+              :class="{ 'text-primary-600': currentCategory?.id === category.id }"
+            >
+              {{ category.name }}
             </NuxtLink>
           </nav>
 
@@ -35,8 +45,8 @@
               </span>
             </NuxtLink>
 
-            <!-- User Menu -->
-            <div v-if="isAuthenticated" class="flex items-center gap-2">
+            <!-- User Menu (Desktop) -->
+            <div v-if="isAuthenticated" class="hidden md:flex items-center gap-2">
               <NuxtLink to="/orders" class="text-gray-700 hover:text-primary-600 transition-colors text-sm">
                 訂單查詢
               </NuxtLink>
@@ -48,7 +58,7 @@
                 登出
               </button>
             </div>
-            <div v-else class="flex items-center gap-2">
+            <div v-else class="hidden md:flex items-center gap-2">
               <NuxtLink to="/login" class="text-gray-700 hover:text-primary-600 transition-colors text-sm">
                 登入
               </NuxtLink>
@@ -57,13 +67,80 @@
                 註冊
               </NuxtLink>
             </div>
+
+            <!-- Mobile Menu Button -->
+            <button
+              class="md:hidden p-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+              @click="mobileMenuOpen = !mobileMenuOpen"
+            >
+              <svg v-if="!mobileMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+              <svg v-else class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div v-if="mobileMenuOpen" class="md:hidden border-t border-gray-200 py-4">
+          <div class="space-y-2">
+            <NuxtLink
+              to="/"
+              class="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors font-medium"
+              :class="{ 'bg-primary-50 text-primary-600': route.path === '/' }"
+              @click="mobileMenuOpen = false"
+            >
+              首頁
+            </NuxtLink>
+            <NuxtLink
+              v-for="category in categories"
+              :key="category.id"
+              :to="`/products/category/${category.slug}`"
+              class="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors font-medium"
+              :class="{ 'bg-primary-50 text-primary-600': currentCategory?.id === category.id }"
+              @click="mobileMenuOpen = false"
+            >
+              {{ category.name }}
+            </NuxtLink>
+
+            <!-- Mobile User Menu -->
+            <div v-if="isAuthenticated" class="pt-2 mt-2 border-t border-gray-200 space-y-2">
+              <NuxtLink
+                to="/orders"
+                class="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+                @click="mobileMenuOpen = false"
+              >
+                訂單查詢
+              </NuxtLink>
+              <button
+                class="w-full text-left px-4 py-2 text-red-600 hover:bg-gray-100 rounded-lg transition-colors"
+                @click="handleLogout"
+              >
+                登出
+              </button>
+            </div>
+            <div v-else class="pt-2 mt-2 border-t border-gray-200 space-y-2">
+              <NuxtLink
+                to="/login"
+                class="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+                @click="mobileMenuOpen = false"
+              >
+                登入
+              </NuxtLink>
+              <NuxtLink
+                to="/register"
+                class="block px-4 py-2 text-primary-600 font-medium hover:bg-gray-100 rounded-lg transition-colors"
+                @click="mobileMenuOpen = false"
+              >
+                註冊
+              </NuxtLink>
+            </div>
           </div>
         </div>
       </div>
     </header>
-
-    <!-- Category Navigation -->
-    <CategoryNav :categories="categories" :current-category="currentCategory" />
 
     <!-- Main Content -->
     <main class="flex-1">
@@ -127,7 +204,6 @@ import { useAuthStore } from '@/stores/auth'
 import { useCartStore } from '@/stores/cart'
 import { useCategories } from '@/composables/useCategories'
 import { useToast } from '@/composables/useToast'
-import CategoryNav from '@/components/product/CategoryNav.vue'
 import BaseToast from '@/components/base/BaseToast.vue'
 
 const { categories, fetchCategories } = useCategories()
@@ -136,6 +212,7 @@ const cartStore = useCartStore()
 const { isAuthenticated } = storeToRefs(authStore)
 const route = useRoute()
 const { toasts } = useToast()
+const mobileMenuOpen = ref(false)
 
 // 載入類別
 onMounted(async () => {
@@ -156,6 +233,12 @@ const currentCategory = computed<Category | null>(() => {
 // 登出處理
 const handleLogout = async () => {
   await authStore.logout()
+  mobileMenuOpen.value = false
   navigateTo('/')
 }
+
+// 關閉移動端菜單當路由改變時
+watch(() => route.path, () => {
+  mobileMenuOpen.value = false
+})
 </script>
