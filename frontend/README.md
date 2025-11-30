@@ -83,26 +83,32 @@ npm run format
 
 ```
 frontend/
-├── assets/          # 靜態資源（CSS、圖片）
-├── components/      # Vue 元件
-│   ├── base/       # 基礎共用元件
-│   ├── cart/       # 購物車相關元件
-│   ├── product/    # 產品相關元件
-│   ├── checkout/   # 結帳相關元件
-│   └── user/       # 會員相關元件
-├── composables/     # Vue composables
-├── layouts/         # 版面配置
-├── middleware/      # 路由中介層
-├── pages/           # 頁面（自動路由）
-├── server/          # Nuxt server routes (mock API)
-│   ├── api/        # API endpoints
-│   └── mock/       # 模擬資料
-├── stores/          # Pinia stores
-├── types/           # TypeScript 型別定義
-├── utils/           # 工具函式
-└── tests/           # 測試檔案
-    ├── e2e/        # E2E 測試
-    └── unit/       # 單元測試
+├── app/                    # Nuxt 3 應用程式目錄
+│   ├── assets/            # 靜態資源（CSS）
+│   ├── components/        # Vue 元件
+│   │   ├── base/         # 基礎共用元件（Button、Input、Modal、Toast）
+│   │   ├── cart/         # 購物車相關元件
+│   │   ├── checkout/     # 結帳相關元件
+│   │   ├── order/        # 訂單相關元件
+│   │   ├── product/      # 產品相關元件
+│   │   └── user/         # 會員相關元件
+│   ├── composables/       # Vue composables（業務邏輯複用）
+│   ├── i18n/             # 國際化翻譯檔案
+│   ├── layouts/          # 版面配置（default、auth）
+│   ├── middleware/       # 路由中介層（auth、guest）
+│   ├── pages/            # 頁面（自動路由）
+│   ├── plugins/          # Nuxt 插件
+│   ├── stores/           # Pinia stores（狀態管理）
+│   ├── types/            # TypeScript 型別定義
+│   └── utils/            # 工具函式
+├── server/                # Nuxt server（Mock API）
+│   ├── api/              # API endpoints
+│   └── mock/             # 模擬資料
+├── tests/                 # 測試檔案
+│   ├── e2e/              # E2E 測試（Playwright）
+│   ├── unit/             # 單元測試（Vitest）
+│   └── fixtures/         # 測試資料
+└── public/               # 公開靜態資源
 ```
 
 ## 憲法原則遵循

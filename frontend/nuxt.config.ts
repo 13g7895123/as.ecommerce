@@ -5,7 +5,7 @@ export default defineNuxtConfig({
 
   modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt', '@vueuse/nuxt'],
 
-  css: ['assets/main.css'],
+  css: ['~/assets/main.css'],
 
   typescript: {
     strict: true,

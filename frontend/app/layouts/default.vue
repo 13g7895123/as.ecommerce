@@ -5,19 +5,25 @@
       <div class="container-custom">
         <div class="flex items-center justify-between h-16">
           <!-- Logo -->
-          <NuxtLink to="/" class="text-2xl font-bold text-primary-600">
+          <NuxtLink to="/" class="text-2xl font-bold text-primary-600 shrink-0">
             購物網站
           </NuxtLink>
 
-          <!-- Navigation -->
-          <nav class="hidden md:flex items-center gap-6">
-            <NuxtLink to="/" class="text-gray-700 hover:text-primary-600 transition-colors">
-              首頁
-            </NuxtLink>
-            <NuxtLink to="/products/category/all" class="text-gray-700 hover:text-primary-600 transition-colors">
-              所有商品
-            </NuxtLink>
-          </nav>
+          <!-- Search Bar -->
+          <div class="hidden md:flex flex-1 max-w-2xl mx-8">
+            <div class="relative w-full">
+              <input
+                type="text"
+                placeholder="搜尋商品..."
+                class="w-full pl-4 pr-10 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+              />
+              <button class="absolute right-0 top-0 h-full px-3 text-gray-500 hover:text-primary-600">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </button>
+            </div>
+          </div>
 
           <!-- Right Actions -->
           <div class="flex items-center gap-4">
@@ -55,6 +61,65 @@
               <span class="text-gray-400">|</span>
               <NuxtLink to="/register" class="text-primary-600 font-medium hover:text-primary-700 transition-colors text-sm">
                 註冊
+              </NuxtLink>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button
+              class="md:hidden p-2 text-gray-700 hover:bg-gray-100 rounded-lg"
+              @click="mobileMenuOpen = !mobileMenuOpen"
+            >
+              <span v-if="!mobileMenuOpen" class="text-2xl">☰</span>
+              <span v-else class="text-2xl">✕</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation Menu -->
+      <div v-if="mobileMenuOpen" class="md:hidden border-t border-gray-200 bg-white">
+        <div class="container-custom py-4 space-y-4">
+          <!-- Mobile Search -->
+          <div class="relative">
+            <input
+              type="text"
+              placeholder="搜尋商品..."
+              class="w-full pl-4 pr-10 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            />
+            <button class="absolute right-0 top-0 h-full px-3 text-gray-500 hover:text-primary-600">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </button>
+          </div>
+
+          <div class="space-y-2">
+            <NuxtLink
+              to="/"
+              class="block px-4 py-2 rounded-lg hover:bg-gray-50 text-gray-700 font-medium"
+              @click="mobileMenuOpen = false"
+            >
+              首頁
+            </NuxtLink>
+            <NuxtLink
+              to="/products/category/all"
+              class="block px-4 py-2 rounded-lg hover:bg-gray-50 text-gray-700 font-medium"
+              @click="mobileMenuOpen = false"
+            >
+              所有商品
+            </NuxtLink>
+            <div class="border-t border-gray-100 my-2 pt-2">
+              <div class="px-4 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                商品分類
+              </div>
+              <NuxtLink
+                v-for="category in categories"
+                :key="category.id"
+                :to="`/products/category/${category.slug}`"
+                class="block px-4 py-2 rounded-lg hover:bg-gray-50 text-gray-700"
+                @click="mobileMenuOpen = false"
+              >
+                {{ category.name }}
               </NuxtLink>
             </div>
           </div>
@@ -136,6 +201,7 @@ const cartStore = useCartStore()
 const { isAuthenticated } = storeToRefs(authStore)
 const route = useRoute()
 const { toasts } = useToast()
+const mobileMenuOpen = ref(false)
 
 // 載入類別
 onMounted(async () => {
