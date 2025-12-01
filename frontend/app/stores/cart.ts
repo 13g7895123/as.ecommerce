@@ -82,10 +82,11 @@ export const useCartStore = defineStore('cart', {
     async addItem(payload: AddToCartPayload): Promise<void> {
       this.loading = true
       this.error = null
+      const productsStore = useProductsStore()
 
       try {
         // 取得產品詳情
-        const product = await $fetch(`/api/products/${payload.productId}`)
+        const product = await productsStore.fetchProductById(payload.productId)
 
         // 檢查庫存
         if (product.stock < payload.quantity) {

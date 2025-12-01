@@ -4,7 +4,7 @@
  */
 
 import { defineStore } from 'pinia'
-import type { User, LoginPayload, RegisterPayload, AuthResponse } from '~/types/user'
+import type { User, LoginPayload, RegisterPayload, AuthResponse, UpdateProfilePayload } from '~/types/user'
 import { saveAuthToken, loadAuthToken, saveUserData, loadUserData, clearAuthToken, clearUserData } from '~/utils/storage'
 
 interface AuthState {
@@ -58,9 +58,10 @@ export const useAuthStore = defineStore('auth', {
     async login(payload: LoginPayload): Promise<void> {
       this.loading = true
       this.error = null
+      const api = useApi()
 
       try {
-        const response = await $fetch<AuthResponse>('/api/auth/login', {
+        const response = await api<AuthResponse>('/auth/login', {
           method: 'POST',
           body: payload
         })
@@ -72,7 +73,7 @@ export const useAuthStore = defineStore('auth', {
         saveAuthToken(response.token)
         saveUserData(response.user)
       } catch (err: any) {
-        this.error = err.data?.message || err.message || '登入失敗'
+        this.error = err.data?.statusMessage || err.message || '登入失敗'
         throw err
       } finally {
         this.loading = false
@@ -85,9 +86,10 @@ export const useAuthStore = defineStore('auth', {
     async register(payload: RegisterPayload): Promise<void> {
       this.loading = true
       this.error = null
+      const api = useApi()
 
       try {
-        const response = await $fetch<AuthResponse>('/api/auth/register', {
+        const response = await api<AuthResponse>('/auth/register', {
           method: 'POST',
           body: payload
         })
@@ -99,7 +101,7 @@ export const useAuthStore = defineStore('auth', {
         saveAuthToken(response.token)
         saveUserData(response.user)
       } catch (err: any) {
-        this.error = err.data?.message || err.message || '註冊失敗'
+        this.error = err.data?.statusMessage || err.message || '註冊失敗'
         throw err
       } finally {
         this.loading = false
@@ -110,16 +112,60 @@ export const useAuthStore = defineStore('auth', {
      * 登出
      */
     async logout(): Promise<void> {
-      this.user = null
-      this.token = null
+      const api = useApi()
+      try {
+        if (this.token) {
+          await api('/auth/logout', { method: 'POST' })
+        }
+      } catch (error) {
+        console.error('Logout API error:', error)
+      } finally {
+        this.user = null
+        this.token = null
 
-      // 清除 localStorage
-      clearAuthToken()
-      clearUserData()
+        // 清除 localStorage
+        clearAuthToken()
+        clearUserData()
+      }
+    },
+
+    /**
+     * 取得個人資料
+     */
+    async fetchProfile(): Promise<void> {
+      const api = useApi()
+      try {
+        const user = await api<User>('/user/profile')
+        this.user = user
+        saveUserData(user)
+      } catch (error) {
+        console.error('Fetch profile error:', error)
+      }
     },
 
     /**
      * 更新使用者資訊
+     */
+    async updateProfile(payload: UpdateProfilePayload): Promise<void> {
+      this.loading = true
+      const api = useApi()
+      try {
+        const response = await api<{ message: string, user: User }>('/user/profile', {
+          method: 'PUT',
+          body: payload
+        })
+        this.user = response.user
+        saveUserData(response.user)
+      } catch (err: any) {
+        this.error = err.data?.statusMessage || err.message || '更新失敗'
+        throw err
+      } finally {
+        this.loading = false
+      }
+    },
+
+    /**
+     * 更新使用者資訊 (Legacy - for local update)
      */
     updateUser(user: User): void {
       this.user = user

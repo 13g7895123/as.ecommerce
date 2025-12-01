@@ -3,7 +3,7 @@
  * 結帳流程相關邏輯封裝
  */
 
-import type { CreateOrderPayload } from '~/types/order'
+import type { CreateOrderPayload, PaymentMethod } from '~/types/order'
 import type { ShippingInfo } from '~/types/address'
 
 export function useCheckout() {
@@ -21,10 +21,7 @@ export function useCheckout() {
       const payload: CreateOrderPayload = {
         items: cartStore.items,
         shippingInfo,
-        paymentMethod,
-        subtotal: cartStore.cart.subtotal,
-        shipping: cartStore.cart.shipping,
-        total: cartStore.cart.total
+        paymentMethod: paymentMethod as PaymentMethod
       }
 
       // 建立訂單

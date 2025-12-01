@@ -19,9 +19,10 @@ export function useCategories() {
     error.value = null
 
     try {
-      const response = await $fetch<{ categories: Category[] }>('/api/categories')
-      categories.value = response.categories
-      return response.categories
+      const api = useApi()
+      const response = await api<Category[]>('/categories')
+      categories.value = response
+      return response
     } catch (err: any) {
       error.value = err.message || '載入類別失敗'
       console.error('Failed to fetch categories:', err)

@@ -4,7 +4,7 @@
  */
 
 import { defineStore } from 'pinia'
-import type { Order, CreateOrderPayload } from '~/types/order'
+import type { Order, CreateOrderPayload, OrderListQuery, OrderListResponse } from '~/types/order'
 
 interface OrderState {
   orders: Order[]
@@ -46,11 +46,22 @@ export const useOrderStore = defineStore('order', {
     async createOrder(payload: CreateOrderPayload): Promise<Order> {
       this.loading = true
       this.error = null
+      const api = useApi()
+
+      // 轉換 payload 格式以符合 API 需求
+      const apiPayload = {
+        items: payload.items.map(item => ({
+          id: item.productId,
+          quantity: item.quantity
+        })),
+        shippingInfo: payload.shippingInfo,
+        paymentMethod: payload.paymentMethod
+      }
 
       try {
-        const order = await $fetch<Order>('/api/orders', {
+        const order = await api<Order>('/orders', {
           method: 'POST',
-          body: payload
+          body: apiPayload
         })
 
         this.currentOrder = order
@@ -58,7 +69,7 @@ export const useOrderStore = defineStore('order', {
 
         return order
       } catch (err: any) {
-        this.error = err.data?.message || err.message || '建立訂單失敗'
+        this.error = err.data?.statusMessage || err.message || '建立訂單失敗'
         throw err
       } finally {
         this.loading = false
@@ -68,16 +79,19 @@ export const useOrderStore = defineStore('order', {
     /**
      * 取得訂單列表
      */
-    async fetchOrders(): Promise<Order[]> {
+    async fetchOrders(query?: OrderListQuery): Promise<OrderListResponse> {
       this.loading = true
       this.error = null
+      const api = useApi()
 
       try {
-        const response = await $fetch<{ orders: Order[] }>('/api/orders')
+        const response = await api<OrderListResponse>('/orders', {
+          query: query as Record<string, any>
+        })
         this.orders = response.orders
-        return response.orders
+        return response
       } catch (err: any) {
-        this.error = err.data?.message || err.message || '載入訂單失敗'
+        this.error = err.data?.statusMessage || err.message || '載入訂單失敗'
         throw err
       } finally {
         this.loading = false
@@ -90,9 +104,10 @@ export const useOrderStore = defineStore('order', {
     async fetchOrderById(id: string): Promise<Order> {
       this.loading = true
       this.error = null
+      const api = useApi()
 
       try {
-        const order = await $fetch<Order>(`/api/orders/${id}`)
+        const order = await api<Order>(`/orders/${id}`)
         this.currentOrder = order
 
         // 更新列表中的訂單
@@ -105,7 +120,7 @@ export const useOrderStore = defineStore('order', {
 
         return order
       } catch (err: any) {
-        this.error = err.data?.message || err.message || '載入訂單失敗'
+        this.error = err.data?.statusMessage || err.message || '載入訂單失敗'
         throw err
       } finally {
         this.loading = false

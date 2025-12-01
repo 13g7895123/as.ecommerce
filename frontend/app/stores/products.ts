@@ -68,9 +68,10 @@ export const useProductsStore = defineStore('products', {
 
       this.loading = true
       this.error = null
+      const api = useApi()
 
       try {
-        const response = await $fetch<ProductListResponse>('/api/products', {
+        const response = await api<ProductListResponse>('/products', {
           query: query as Record<string, any>
         })
 
@@ -97,11 +98,16 @@ export const useProductsStore = defineStore('products', {
     async fetchFeaturedProducts(limit = 8): Promise<Product[]> {
       this.loading = true
       this.error = null
+      const api = useApi()
 
       try {
-        // 請求足夠多的產品以確保有足夠的精選產品
-        const response = await this.fetchProducts({ limit: 50 })
-        this.featuredProducts = response.products.filter((p) => p.featured).slice(0, limit)
+        const response = await api<ProductListResponse>('/products', {
+          query: {
+            sort: 'popular',
+            limit: limit
+          }
+        })
+        this.featuredProducts = response.products
         return this.featuredProducts
       } catch (err: any) {
         this.error = err.message || '載入熱門產品失敗'
@@ -115,18 +121,19 @@ export const useProductsStore = defineStore('products', {
      * 取得單一產品詳情
      */
     async fetchProductById(id: string): Promise<Product> {
-      // 先檢查 store 中是否已有資料
+      // 先檢查 store 中是否已有資料 (且包含 specifications)
       const existing = this.getProductById(id)
-      if (existing) {
+      if (existing && existing.specifications) {
         this.selectedProduct = existing
         return existing
       }
 
       this.loading = true
       this.error = null
+      const api = useApi()
 
       try {
-        const product = await $fetch<Product>(`/api/products/${id}`)
+        const product = await api<Product>(`/products/${id}`)
         this.selectedProduct = product
 
         // 加入到產品列表中
@@ -143,6 +150,19 @@ export const useProductsStore = defineStore('products', {
         throw err
       } finally {
         this.loading = false
+      }
+    },
+
+    /**
+     * 取得分類列表
+     */
+    async fetchCategories(): Promise<any[]> {
+      const api = useApi()
+      try {
+        return await api<any[]>('/categories')
+      } catch (err: any) {
+        console.error('Fetch categories error:', err)
+        return []
       }
     },
 

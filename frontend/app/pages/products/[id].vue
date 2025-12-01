@@ -15,7 +15,7 @@ const quantity = ref(1)
 // 載入產品詳情
 onMounted(async () => {
   try {
-    const data = await $fetch(`/api/products/${productId}`)
+    const data = await productsStore.fetchProductById(productId)
     product.value = data
   } catch (err) {
     showError('無法載入產品資訊')
@@ -30,7 +30,11 @@ async function addToCart() {
   if (!product.value) return
 
   try {
-    await cartStore.addItem(product.value, quantity.value)
+    await cartStore.addItem({
+      productId: product.value.id,
+      quantity: quantity.value,
+      specifications: product.value.specifications
+    })
     success(`已加入 ${quantity.value} 件商品至購物車`)
     quantity.value = 1
   } catch (err) {
@@ -121,12 +125,12 @@ function decreaseQuantity() {
         </div>
 
         <!-- Specs -->
-        <div v-if="product.specs && product.specs.length > 0" class="border-t pt-6">
+        <div v-if="product.specifications && Object.keys(product.specifications).length > 0" class="border-t pt-6">
           <h2 class="text-lg font-semibold text-gray-900 mb-3">商品規格</h2>
           <dl class="space-y-2">
-            <div v-for="spec in product.specs" :key="spec.label" class="flex">
-              <dt class="w-24 text-gray-600">{{ spec.label }}</dt>
-              <dd class="text-gray-900">{{ spec.value }}</dd>
+            <div v-for="(value, key) in product.specifications" :key="key" class="flex">
+              <dt class="w-24 text-gray-600">{{ key }}</dt>
+              <dd class="text-gray-900">{{ value }}</dd>
             </div>
           </dl>
         </div>
