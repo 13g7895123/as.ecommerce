@@ -66,6 +66,14 @@ class ProductModel extends Model
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
 
+    /** @var array 排序欄位對應 */
+    private const SORT_MAPPINGS = [
+        'price-asc'  => ['price', 'ASC'],
+        'price-desc' => ['price', 'DESC'],
+        'popular'    => ['featured', 'DESC'],
+        'newest'     => ['created_at', 'DESC'],
+    ];
+
     /**
      * 產生唯一 ID
      */
@@ -94,6 +102,7 @@ class ProductModel extends Model
 
         // 關鍵字搜尋
         if ($search) {
+            $escapedSearch = $builder->db->escapeString($search);
             $builder->groupStart()
                 ->like('name', $search)
                 ->orLike('description', $search)
@@ -105,21 +114,7 @@ class ProductModel extends Model
         $total = $builder->countAllResults(false);
 
         // 排序
-        switch ($sort) {
-            case 'price-asc':
-                $builder->orderBy('price', 'ASC');
-                break;
-            case 'price-desc':
-                $builder->orderBy('price', 'DESC');
-                break;
-            case 'popular':
-                $builder->orderBy('featured', 'DESC')->orderBy('created_at', 'DESC');
-                break;
-            case 'newest':
-            default:
-                $builder->orderBy('created_at', 'DESC');
-                break;
-        }
+        $this->applySorting($builder, $sort);
 
         // 分頁
         $offset = ($page - 1) * $limit;
@@ -132,6 +127,24 @@ class ProductModel extends Model
             'limit'    => $limit,
             'hasMore'  => ($offset + count($products)) < $total,
         ];
+    }
+
+    /**
+     * 套用排序
+     */
+    private function applySorting($builder, string $sort): void
+    {
+        if (isset(self::SORT_MAPPINGS[$sort])) {
+            [$field, $direction] = self::SORT_MAPPINGS[$sort];
+            $builder->orderBy($field, $direction);
+            
+            // popular 排序額外加上 created_at
+            if ($sort === 'popular') {
+                $builder->orderBy('created_at', 'DESC');
+            }
+        } else {
+            $builder->orderBy('created_at', 'DESC');
+        }
     }
 
     /**
@@ -170,5 +183,34 @@ class ProductModel extends Model
     {
         $product = $this->find($productId);
         return $product && $product->stock >= $quantity;
+    }
+
+    /**
+     * 批量檢查庫存
+     * 
+     * @param array $items [['id' => 'prod_xxx', 'quantity' => 2], ...]
+     * @return array 不足庫存的商品 ID 列表
+     */
+    public function checkStockBatch(array $items): array
+    {
+        $insufficientStock = [];
+        $productIds = array_column($items, 'id');
+        
+        // 一次查詢所有商品
+        $products = $this->whereIn('id', $productIds)->findAll();
+        $productMap = [];
+        foreach ($products as $product) {
+            $productMap[$product->id] = $product;
+        }
+        
+        foreach ($items as $item) {
+            if (!isset($productMap[$item['id']])) {
+                $insufficientStock[] = $item['id'];
+            } elseif ($productMap[$item['id']]->stock < $item['quantity']) {
+                $insufficientStock[] = $item['id'];
+            }
+        }
+        
+        return $insufficientStock;
     }
 }

@@ -23,17 +23,15 @@ class ProductController extends ApiController
      */
     public function index(): ResponseInterface
     {
+        $pagination = $this->getPaginationParams();
+        
         $params = [
-            'page'       => (int) ($this->request->getGet('page') ?? 1),
-            'limit'      => (int) ($this->request->getGet('limit') ?? 20),
+            'page'       => $pagination['page'],
+            'limit'      => $pagination['limit'],
             'categoryId' => $this->request->getGet('categoryId'),
             'sort'       => $this->request->getGet('sort') ?? 'newest',
             'search'     => $this->request->getGet('search'),
         ];
-
-        // 限制每頁數量
-        $params['limit'] = min(max($params['limit'], 1), 100);
-        $params['page'] = max($params['page'], 1);
 
         $result = $this->productModel->getProducts($params);
 

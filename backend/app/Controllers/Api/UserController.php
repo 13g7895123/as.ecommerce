@@ -36,60 +36,48 @@ class UserController extends ApiController
 
         // 準備更新資料
         $updateData = [];
+        $errors = [];
 
         // 更新姓名
         if (isset($input['name'])) {
-            $validation = service('validation');
-            $validation->setRules([
+            $nameResult = $this->validateField('name', $input['name'], [
                 'name' => 'min_length[1]|max_length[100]',
             ]);
-
-            if (!$validation->run(['name' => $input['name']])) {
-                return $this->validationError($validation->getErrors());
+            if ($nameResult !== true) {
+                $errors = array_merge($errors, $nameResult);
+            } else {
+                $updateData['name'] = $input['name'];
             }
-
-            $updateData['name'] = $input['name'];
         }
 
         // 更新電話
         if (isset($input['phone'])) {
-            $validation = service('validation');
-            $validation->setRules([
+            $phoneResult = $this->validateField('phone', $input['phone'], [
                 'phone' => 'min_length[10]|max_length[20]',
             ]);
-
-            if (!$validation->run(['phone' => $input['phone']])) {
-                return $this->validationError($validation->getErrors());
+            if ($phoneResult !== true) {
+                $errors = array_merge($errors, $phoneResult);
+            } else {
+                $updateData['phone'] = $input['phone'];
             }
-
-            $updateData['phone'] = $input['phone'];
         }
 
         // 更新密碼
         if (isset($input['newPassword'])) {
-            // 需要驗證舊密碼
-            if (!isset($input['currentPassword'])) {
-                return $this->error('更改密碼需要提供目前密碼', 400);
+            $passwordResult = $this->validatePasswordUpdate($user, $input);
+            if (is_string($passwordResult)) {
+                return $this->error($passwordResult, 400);
             }
-
-            if (!$user->verifyPassword($input['currentPassword'])) {
-                return $this->error('目前密碼不正確', 400);
+            if (is_array($passwordResult)) {
+                $errors = array_merge($errors, $passwordResult);
+            } else {
+                $updateData['password_hash'] = password_hash($input['newPassword'], PASSWORD_DEFAULT);
             }
+        }
 
-            $validation = service('validation');
-            $validation->setRules([
-                'newPassword' => 'min_length[8]',
-            ], [
-                'newPassword' => [
-                    'min_length' => '新密碼至少需要 8 個字元',
-                ],
-            ]);
-
-            if (!$validation->run(['newPassword' => $input['newPassword']])) {
-                return $this->validationError($validation->getErrors());
-            }
-
-            $updateData['password_hash'] = password_hash($input['newPassword'], PASSWORD_DEFAULT);
+        // 若有驗證錯誤
+        if (!empty($errors)) {
+            return $this->validationError($errors);
         }
 
         // 若無更新資料
@@ -112,5 +100,54 @@ class UserController extends ApiController
             'message' => '更新成功',
             'user'    => $updatedUser->toApiResponse(),
         ]);
+    }
+
+    /**
+     * 驗證單一欄位
+     * 
+     * @return array|bool 驗證成功回傳 true，失敗回傳錯誤陣列
+     */
+    private function validateField(string $field, $value, array $rules)
+    {
+        $validation = service('validation');
+        $validation->setRules($rules);
+        
+        if (!$validation->run([$field => $value])) {
+            return $validation->getErrors();
+        }
+        
+        return true;
+    }
+
+    /**
+     * 驗證密碼更新
+     * 
+     * @return array|string|bool 錯誤訊息字串、錯誤陣列或 true
+     */
+    private function validatePasswordUpdate($user, array $input)
+    {
+        // 需要驗證舊密碼
+        if (!isset($input['currentPassword'])) {
+            return '更改密碼需要提供目前密碼';
+        }
+
+        if (!$user->verifyPassword($input['currentPassword'])) {
+            return '目前密碼不正確';
+        }
+
+        $validation = service('validation');
+        $validation->setRules([
+            'newPassword' => 'min_length[8]',
+        ], [
+            'newPassword' => [
+                'min_length' => '新密碼至少需要 8 個字元',
+            ],
+        ]);
+
+        if (!$validation->run(['newPassword' => $input['newPassword']])) {
+            return $validation->getErrors();
+        }
+
+        return true;
     }
 }
