@@ -1,0 +1,5 @@
+# Environment file (use envs/*.env as templates)
+.env
+
+# Docker volumes
+**/mysql_data/

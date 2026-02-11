@@ -1,0 +1,65 @@
+services:
+  # Nginx Web Server
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "${NGINX_PORT:-8080}:80"
+    volumes:
+      - ../backend:/var/www/html
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - php
+    networks:
+      - app_network
+
+  # PHP-FPM Service
+  php:
+    build:
+      context: ..
+      dockerfile: ./docker/php/Dockerfile
+    volumes:
+      - ../backend:/var/www/html
+    networks:
+      - app_network
+    environment:
+      - DB_HOST=${DB_HOST:-mysql}
+      - DB_DATABASE=${DB_DATABASE:-ecommerce}
+      - DB_USERNAME=${DB_USERNAME:-root}
+      - DB_PASSWORD=${DB_PASSWORD:-root}
+
+  # MySQL Database
+  mysql:
+    image: mysql:8.0
+    ports:
+      - "${MYSQL_PORT:-3306}:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-ecommerce}
+      MYSQL_USER: ${MYSQL_USER:-ecommerce_user}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-ecommerce_pass}
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - app_network
+
+  # PhpMyAdmin
+  phpmyadmin:
+    image: phpmyadmin:latest
+    ports:
+      - "${PHPMYADMIN_PORT:-8081}:80"
+    environment:
+      PMA_HOST: ${PMA_HOST:-mysql}
+      PMA_USER: ${PMA_USER:-root}
+      PMA_PASSWORD: ${PMA_PASSWORD:-root}
+    depends_on:
+      - mysql
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge
+
+volumes:
+  mysql_data:
+    driver: local
