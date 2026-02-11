@@ -1,12 +1,23 @@
 # Worktrees for parallel development
 worktrees/
 
-# Node.js
+# Node.js / Bun
 node_modules/
 npm-debug.log
 yarn-error.log
 package-lock.json
 yarn.lock
+bun.lock
+
+# Frontend specific
+frontend/node_modules/
+frontend/bun.lock
+frontend/.bun-cache/
+frontend/.turbo/
+frontend/.nuxt/
+frontend/.output/
+frontend/apps/*/.nuxt/
+frontend/apps/*/.output/
 
 # Environment variables
 .env
@@ -27,6 +38,9 @@ Thumbs.db
 # Build output
 dist/
 build/
+.nuxt/
+.output/
+.turbo/
 *.log
 
 # Python
