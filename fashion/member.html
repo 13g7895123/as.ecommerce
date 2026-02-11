@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>會員中心 | S.Collection</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">S.COLLECTION</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">首頁</a></li>
+                    <li><a href="#">新品上市</a></li>
+                    <li><a href="#">男裝</a></li>
+                    <li><a href="#">女裝</a></li>
+                    <li><a href="#">配件</a></li>
+                </ul>
+                <div class="nav-icons">
+                    <a href="search.html"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    <a href="member.html"><i class="fa-solid fa-user"></i></a>
+                    <a href="checkout.html"><i class="fa-solid fa-cart-shopping"></i> (0)</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <div class="member-layout">
+            <!-- Sidebar -->
+            <aside class="member-sidebar">
+                <div class="user-profile-summary">
+                    <div class="avatar-circle">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <h3>王小明</h3>
+                    <p>一般會員</p>
+                </div>
+                <nav class="member-nav">
+                    <a href="#" class="active"><i class="fa-solid fa-bag-shopping"></i> 我的訂單</a>
+                    <a href="#"><i class="fa-solid fa-heart"></i> 收藏清單</a>
+                    <a href="#"><i class="fa-solid fa-ticket"></i> 優惠券</a>
+                    <a href="#"><i class="fa-solid fa-address-card"></i> 個人資料</a>
+                    <a href="#"><i class="fa-solid fa-location-dot"></i> 收件地址</a>
+                    <a href="index.html" class="logout"><i class="fa-solid fa-right-from-bracket"></i> 登出</a>
+                </nav>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="member-content">
+                <h2 class="section-title" style="text-align: left; margin-top: 0;">我的訂單</h2>
+                
+                <!-- Order Filter -->
+                <div class="order-tabs">
+                    <button class="tab-btn active">全部</button>
+                    <button class="tab-btn">待付款</button>
+                    <button class="tab-btn">處理中</button>
+                    <button class="tab-btn">已完成</button>
+                </div>
+
+                <!-- Order List -->
+                <div class="order-list">
+                    <!-- Order Item 1 -->
+                    <div class="order-card">
+                        <div class="order-header">
+                            <div>
+                                <span class="order-id">訂單編號: #ORDER-20260211-001</span>
+                                <span class="order-date">2026/02/11</span>
+                            </div>
+                            <span class="status-badge status-pending">待付款</span>
+                        </div>
+                        <div class="order-body">
+                            <div class="order-product">
+                                <img src="https://placehold.co/80x80/f5f5f5/333" alt="Product">
+                                <div class="order-info">
+                                    <h4>經典羊毛大衣</h4>
+                                    <p>顏色: 駝色 / 尺寸: M</p>
+                                    <div class="price">NT$ 3,280 x 1</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-footer">
+                            <div class="total-price">訂單金額: <span>NT$ 3,340</span></div>
+                            <button class="btn btn-sm">立即付款</button>
+                        </div>
+                    </div>
+
+                    <!-- Order Item 2 -->
+                    <div class="order-card">
+                        <div class="order-header">
+                            <div>
+                                <span class="order-id">訂單編號: #ORDER-20260115-882</span>
+                                <span class="order-date">2026/01/15</span>
+                            </div>
+                            <span class="status-badge status-completed">已完成</span>
+                        </div>
+                        <div class="order-body">
+                            <div class="order-product">
+                                <img src="https://placehold.co/80x80/f5f5f5/333" alt="Product">
+                                <div class="order-info">
+                                    <h4>純棉素色T恤</h4>
+                                    <p>顏色: 白 / 尺寸: L</p>
+                                    <div class="price">NT$ 590 x 2</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-footer">
+                            <div class="total-price">訂單金額: <span>NT$ 1,240</span></div>
+                            <button class="btn btn-outline btn-sm">查看詳情</button>
+                        </div>
+                    </div>
+
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>關於我們</h4>
+                    <ul>
+                        <li>品牌故事</li>
+                        <li>實體店面</li>
+                        <li>人才招募</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>客戶服務</h4>
+                    <ul>
+                        <li>運送說明</li>
+                        <li>退換貨政策</li>
+                        <li>尺碼指南</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>聯絡我們</h4>
+                    <ul>
+                        <li>Email: service@scollection.com</li>
+                        <li>Tel: 02-1234-5678</li>
+                        <li>Mon-Fri: 10am - 7pm</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2026 S.Collection. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

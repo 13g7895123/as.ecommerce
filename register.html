@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>會員註冊 | G.Collection</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">G.COLLECTION</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">首頁</a></li>
+                    <li><a href="#">廚房用品</a></li>
+                    <li><a href="#">文具雜貨</a></li>
+                    <li><a href="#">收納整理</a></li>
+                    <li><a href="#">生活配件</a></li>
+                </ul>
+                <div class="nav-icons">
+                    <a href="search.html"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    <a href="login.html"><i class="fa-solid fa-user"></i></a>
+                    <a href="checkout.html"><i class="fa-solid fa-cart-shopping"></i> (0)</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="auth-container">
+            <div class="auth-box">
+                <h2 style="margin-bottom: 15px; color: var(--primary-color); font-family: 'Georgia', serif;">
+                    <i class="fa-solid fa-user-plus"></i> 會員註冊
+                </h2>
+                <p style="margin-bottom: 35px; color: #888; font-size: 14px;">加入 G.Collection，體驗品質生活</p>
+                
+                <form action="member.html">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>姓氏</label>
+                            <input type="text" class="form-control" placeholder="王" required>
+                        </div>
+                        <div class="form-group">
+                            <label>名字</label>
+                            <input type="text" class="form-control" placeholder="小明" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email 信箱</label>
+                        <input type="email" class="form-control" placeholder="example@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>手機號碼</label>
+                        <input type="tel" class="form-control" placeholder="0912-345-678" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>設定密碼</label>
+                        <input type="password" class="form-control" placeholder="至少 8 個字元" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>確認密碼</label>
+                        <input type="password" class="form-control" placeholder="請再次輸入密碼" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>生日 (選填)</label>
+                        <input type="date" class="form-control">
+                        <small style="color: #888; font-size: 13px; margin-top: 6px; display: block;">
+                            <i class="fa-solid fa-gift" style="color: var(--accent-color);"></i> 
+                            生日當月享有專屬優惠
+                        </small>
+                    </div>
+
+                    <div class="form-group">
+                        <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-weight: normal;">
+                            <input type="checkbox" required>
+                            <span style="font-size: 14px; color: #666;">
+                                我已閱讀並同意 
+                                <a href="#" style="color: var(--accent-color); text-decoration: none;">服務條款</a> 與 
+                                <a href="#" style="color: var(--accent-color); text-decoration: none;">隱私政策</a>
+                            </span>
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-weight: normal;">
+                            <input type="checkbox">
+                            <span style="font-size: 14px; color: #666;">
+                                訂閱電子報，接收最新商品與優惠資訊
+                            </span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn" style="width: 100%; padding: 14px; font-size: 16px; margin-top: 10px;">
+                        <i class="fa-solid fa-check-circle"></i> 立即註冊
+                    </button>
+                </form>
+
+                <!-- Social Register -->
+                <div style="margin: 35px 0;">
+                    <div style="text-align: center; position: relative; margin-bottom: 25px;">
+                        <span style="background: white; padding: 0 15px; position: relative; z-index: 1; color: #999; font-size: 14px;">或使用以下方式註冊</span>
+                        <div style="height: 1px; background: var(--border-color); position: absolute; width: 100%; top: 50%; left: 0; z-index: 0;"></div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+                        <button type="button" style="padding: 12px; border: 1px solid var(--border-color); background: white; border-radius: 6px; cursor: pointer; transition: all 0.3s; font-size: 20px; color: #4267B2;">
+                            <i class="fa-brands fa-facebook"></i>
+                        </button>
+                        <button type="button" style="padding: 12px; border: 1px solid var(--border-color); background: white; border-radius: 6px; cursor: pointer; transition: all 0.3s; font-size: 20px; color: #000;">
+                            <i class="fa-brands fa-google"></i>
+                        </button>
+                        <button type="button" style="padding: 12px; border: 1px solid var(--border-color); background: white; border-radius: 6px; cursor: pointer; transition: all 0.3s; font-size: 20px; color: #00c300;">
+                            <i class="fa-brands fa-line"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div style="text-align: center; font-size: 14px; color: #666;">
+                    已經是會員了？
+                    <a href="login.html" style="color: var(--accent-color); text-decoration: none; font-weight: 600; margin-left: 5px;">
+                        立即登入 <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container" style="padding: 30px 0;">
+            <div class="copyright">
+                &copy; 2026 G.Collection. All rights reserved. | 用心挑選，為生活增添溫度
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

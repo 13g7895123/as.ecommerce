@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>註冊會員 | S.Collection</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">S.COLLECTION</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">首頁</a></li>
+                    <li><a href="#">新品上市</a></li>
+                    <li><a href="#">男裝</a></li>
+                    <li><a href="#">女裝</a></li>
+                    <li><a href="#">配件</a></li>
+                </ul>
+                <div class="nav-icons">
+                    <a href="search.html"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    <a href="login.html"><i class="fa-solid fa-user"></i></a>
+                    <a href="checkout.html"><i class="fa-solid fa-cart-shopping"></i> (0)</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="login-container">
+            <div class="login-box">
+                <h2>註冊會員</h2>
+                <p style="text-align: center; color: #777; margin-bottom: 30px;">加入 S.Collection 享受專屬優惠</p>
+                
+                <form action="index.html">
+                    <div class="form-group">
+                        <label>姓名</label>
+                        <div class="input-with-icon">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="text" class="form-control" placeholder="請輸入姓名" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>電子郵件</label>
+                        <div class="input-with-icon">
+                            <i class="fa-regular fa-envelope"></i>
+                            <input type="email" class="form-control" placeholder="請輸入 Email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>設定密碼</label>
+                        <div class="input-with-icon">
+                            <i class="fa-solid fa-lock"></i>
+                            <input type="password" class="form-control" placeholder="6-12 位英數字" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>確認密碼</label>
+                        <div class="input-with-icon">
+                            <i class="fa-solid fa-check"></i>
+                            <input type="password" class="form-control" placeholder="再次輸入密碼" required>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 20px; font-size: 14px;">
+                        <label style="cursor: pointer; display: flex; align-items: flex-start; gap: 8px;">
+                            <input type="checkbox" required style="margin-top: 4px;"> 
+                            <span>我已閱讀並同意 <a href="#" style="color: var(--accent-color); text-decoration: underline;">使用者條款</a> 與 <a href="#" style="color: var(--accent-color); text-decoration: underline;">隱私權政策</a></span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn" style="width: 100%; padding: 12px; font-size: 16px;">立即註冊</button>
+
+                    <div style="margin-top: 20px; text-align: center;">
+                        <span style="color: #777; font-size: 14px;">已經是會員? </span>
+                        <a href="login.html" style="font-weight: bold; text-decoration: underline;">立即登入</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>關於我們</h4>
+                    <ul>
+                        <li>品牌故事</li>
+                        <li>實體店面</li>
+                        <li>人才招募</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>客戶服務</h4>
+                    <ul>
+                        <li>運送說明</li>
+                        <li>退換貨政策</li>
+                        <li>尺碼指南</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>聯絡我們</h4>
+                    <ul>
+                        <li>Email: service@scollection.com</li>
+                        <li>Tel: 02-1234-5678</li>
+                        <li>Mon-Fri: 10am - 7pm</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2026 S.Collection. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S.Collection | 專業服飾電商</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">S.COLLECTION</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">首頁</a></li>
+                    <li><a href="#">新品上市</a></li>
+                    <li><a href="#">男裝</a></li>
+                    <li><a href="#">女裝</a></li>
+                    <li><a href="#">配件</a></li>
+                </ul>
+                <div class="nav-icons">
+                    <a href="search.html"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    <a href="login.html"><i class="fa-solid fa-user"></i></a>
+                    <a href="checkout.html"><i class="fa-solid fa-cart-shopping"></i> (0)</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Carousel -->
+    <section class="hero">
+        <button class="slider-btn prev-btn" id="prevBtn">&#10094;</button>
+        <button class="slider-btn next-btn" id="nextBtn">&#10095;</button>
+        <div class="slider">
+            <!-- Slide 1 -->
+            <div class="slide" style="background-image: url('https://placehold.co/1200x500/222/FFF?text=Spring+Arrival');">
+                <div class="slide-content">
+                    <h2>2026 春季新品</h2>
+                    <p>探索最新潮流風格，限時八折優惠</p>
+                    <br>
+                    <a href="product.html" class="btn">立即選購</a>
+                </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="slide" style="background-image: url('https://placehold.co/1200x500/c49b63/FFF?text=Summer+Sale');">
+                <div class="slide-content">
+                    <h2>夏日清倉特賣</h2>
+                    <p>全館滿 $3000 免運</p>
+                    <br>
+                    <a href="#" class="btn">查看詳情</a>
+                </div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="slide" style="background-image: url('https://placehold.co/1200x500/555/FFF?text=New+Collection');">
+                <div class="slide-content">
+                    <h2>極簡美學系列</h2>
+                    <p>少即是多，打造專屬你的穿搭哲學</p>
+                    <br>
+                    <a href="#" class="btn">瀏覽系列</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="container">
+        <h2 class="section-title">瀏覽分類</h2>
+        <div class="categories-grid">
+            <a href="#" class="category-card">
+                <img src="https://placehold.co/600x600/eee/333?text=Women" alt="Women">
+                <div class="category-text">女裝系列</div>
+            </a>
+            <a href="#" class="category-card">
+                <img src="https://placehold.co/600x600/333/eee?text=Men" alt="Men">
+                <div class="category-text">男裝系列</div>
+            </a>
+            <a href="#" class="category-card">
+                <img src="https://placehold.co/600x600/ccc/333?text=Accessories" alt="Accessories">
+                <div class="category-text">時尚配件</div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Popular Products -->
+    <section class="container">
+        <h2 class="section-title">熱門商品</h2>
+        <div class="products-grid">
+            <!-- P1 -->
+            <div class="product-card">
+                <a href="product.html">
+                    <div class="product-image">
+                        <img src="https://placehold.co/400x500/f5f5f5/333?text=Coat" alt="Product">
+                    </div>
+                </a>
+                <div class="product-info">
+                    <h3><a href="product.html">經典羊毛大衣</a></h3>
+                    <div class="product-price">NT$ 3,280</div>
+                </div>
+            </div>
+             <!-- P2 -->
+             <div class="product-card">
+                <a href="product.html">
+                    <div class="product-image">
+                        <img src="https://placehold.co/400x500/f5f5f5/333?text=Sweater" alt="Product">
+                    </div>
+                </a>
+                <div class="product-info">
+                    <h3><a href="product.html">休閒針織毛衣</a></h3>
+                    <div class="product-price">NT$ 1,280</div>
+                </div>
+            </div>
+             <!-- P3 -->
+             <div class="product-card">
+                <a href="product.html">
+                    <div class="product-image">
+                        <img src="https://placehold.co/400x500/f5f5f5/333?text=T-Shirt" alt="Product">
+                    </div>
+                </a>
+                <div class="product-info">
+                    <h3><a href="product.html">純棉素色T恤</a></h3>
+                    <div class="product-price">NT$ 590</div>
+                </div>
+            </div>
+             <!-- P4 -->
+             <div class="product-card">
+                <a href="product.html">
+                    <div class="product-image">
+                        <img src="https://placehold.co/400x500/f5f5f5/333?text=Pants" alt="Product">
+                    </div>
+                </a>
+                <div class="product-info">
+                    <h3><a href="product.html">修身丹寧褲</a></h3>
+                    <div class="product-price">NT$ 1,580</div>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-bottom: 60px;">
+            <a href="#" class="btn btn-outline">載入更多商品</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>關於我們</h4>
+                    <ul>
+                        <li>品牌故事</li>
+                        <li>實體店面</li>
+                        <li>人才招募</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>客戶服務</h4>
+                    <ul>
+                        <li>運送說明</li>
+                        <li>退換貨政策</li>
+                        <li>尺碼指南</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>聯絡我們</h4>
+                    <ul>
+                        <li>Email: service@scollection.com</li>
+                        <li>Tel: 02-1234-5678</li>
+                        <li>Mon-Fri: 10am - 7pm</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2026 S.Collection. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.querySelector('.slider');
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            // Infinite Loop Logic: Clone first slide to end
+            const firstSlide = slider.children[0];
+            const cloneSlide = firstSlide.cloneNode(true);
+            slider.appendChild(cloneSlide);
+
+            const autoSlideInterval = 5000;
+            let slideTimer;
+
+            // --- Auto Slide Logic ---
+            function startAutoSlide() {
+                clearInterval(slideTimer);
+                slideTimer = setInterval(() => {
+                    const slideWidth = slider.clientWidth;
+                    // Check if we are at the clone (last slide)
+                    const maxScroll = slider.scrollWidth - slideWidth;
+                    
+                    if (Math.ceil(slider.scrollLeft) >= maxScroll) {
+                        // If somehow we are already at the end, reset instantly then move
+                        slider.style.scrollBehavior = 'auto';
+                        slider.scrollLeft = 0;
+                        slider.style.scrollBehavior = 'smooth';
+                        // Force layout reflow before scrolling
+                        slider.offsetHeight; 
+                    }
+
+                    // Move to next
+                    slider.scrollBy({
+                        left: slideWidth,
+                        behavior: 'smooth'
+                    });
+
+                }, autoSlideInterval);
+            }
+
+            // Detect when scroll ends to check if we hit the clone
+            slider.addEventListener('scroll', () => {
+                // We use a small timeout or check positions to see if we landed on the clone
+                // But specifically for the "Loop" effect:
+                const slideWidth = slider.clientWidth;
+                const maxScroll = slider.scrollWidth - slideWidth;
+
+                // Close enough to the end (allow slight pixel difference)
+                if (Math.ceil(slider.scrollLeft) >= maxScroll) {
+                     // Wait for the smooth scroll to finish visibly, then reset
+                     // However, 'scroll' event fires continuously. 
+                     // We trigger reset only if we are STABLE at the end? 
+                     // Actually, if we use CSS scroll-snap, the browser rests at the snap point.
+                     // Let's use a timeout to detect "rest" or just reset if we are there.
+                     // But if we reset immediately, the user sees it.
+                     // We want to reset AFTER the animation arrives at the clone.
+                     // The clone looks exactly like Slide 1. So we can reset instantly.
+                     
+                     // Optimization: Use a debounce or check if we simply are at the end position.
+                     // If we are at the end, we can silently swap to 0.
+                     // Note: scroll-behavior: smooth makes this tricky because 'scrollLeft' updates over time.
+                     // We only want to swap when the value is final.
+                }
+            });
+            
+            // Better Infinite Loop Handler:
+            // We'll use a specific handler for the auto-scroll reset
+            let isScrolling = false;
+            
+            slider.addEventListener('scroll', () => {
+                if(!isScrolling) {
+                    window.clearTimeout(isScrolling);
+                }
+                 isScrolling = setTimeout(() => {
+                    // Scroll has stopped
+                    const slideWidth = slider.clientWidth;
+                    const maxScroll = slider.scrollWidth - slideWidth;
+                    
+                    // If we are at the clone (last slide)
+                    if (Math.abs(slider.scrollLeft - maxScroll) < 10) {
+                        slider.style.scrollBehavior = 'auto';
+                        slider.scrollLeft = 0;
+                        slider.style.scrollBehavior = 'smooth';
+                    }
+                 }, 100); // Check shortly after scroll stops
+            });
+
+
+            startAutoSlide();
+            
+            // --- Button Logic ---
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            nextBtn.addEventListener('click', () => {
+                clearInterval(slideTimer);
+                const slideWidth = slider.clientWidth;
+                const maxScroll = slider.scrollWidth - slideWidth;
+
+                // If already at the end (clone), jump to start first
+                if (Math.abs(slider.scrollLine - maxScroll) < 10) {
+                     slider.style.scrollBehavior = 'auto';
+                     slider.scrollLeft = 0;
+                     slider.style.scrollBehavior = 'smooth';
+                     // Force reflow
+                     slider.offsetHeight;
+                }
+
+                slider.scrollBy({ left: slideWidth, behavior: 'smooth' });
+                startAutoSlide();
+            });
+
+            prevBtn.addEventListener('click', () => {
+                clearInterval(slideTimer);
+                const slideWidth = slider.clientWidth;
+
+                // If at start, jump to end (clone) first to simulate loop backward
+                if (slider.scrollLeft <= 0) {
+                     // Jump to the end (the clone is effectively index 0 visually but at the end) 
+                     // Wait, if we jump to clone (last slide), it looks like slide 1.
+                     // But we want to go to the slide BEFORE slide 1, which is the last real slide.
+                     // The clone is typically slide 1 copy at the END.
+                     // So: [1] [2] [3] [1_copy]
+                     
+                     // If we are at [1] (pos 0) and hit prev:
+                     // We should ideally jump to [1_copy] (pos end) instantly, then scroll left to [3].
+                     const maxScroll = slider.scrollWidth - slideWidth;
+                     slider.style.scrollBehavior = 'auto';
+                     slider.scrollLeft = maxScroll; 
+                     slider.style.scrollBehavior = 'smooth';
+                     
+                     // Force reflow/wait a tiny bit for the jump to register? 
+                     // Then scroll left one item
+                     setTimeout(() => {
+                        slider.scrollBy({ left: -slideWidth, behavior: 'smooth' });
+                     }, 10);
+                } else {
+                    slider.scrollBy({ left: -slideWidth, behavior: 'smooth' });
+                }
+                
+                startAutoSlide();
+            });
+
+
+            // --- Drag Logic ---
+            slider.addEventListener('mousedown', (e) => {
+                isDown = true;
+                slider.style.cursor = 'grabbing';
+                startX = e.pageX - slider.offsetLeft;
+                scrollLeft = slider.scrollLeft;
+                
+                // Disable snap and smooth behavior for direct 1:1 control
+                slider.style.scrollSnapType = 'none';
+                slider.style.scrollBehavior = 'auto';
+                
+                clearInterval(slideTimer);
+            });
+
+            slider.addEventListener('mouseleave', () => {
+                if (!isDown) return;
+                isDown = false;
+                slider.style.cursor = 'grab';
+                
+                // Re-enable snap
+                slider.style.scrollSnapType = 'x mandatory';
+                slider.style.scrollBehavior = 'smooth';
+                startAutoSlide();
+            });
+
+            slider.addEventListener('mouseup', () => {
+                isDown = false;
+                slider.style.cursor = 'grab';
+                
+                slider.style.scrollSnapType = 'x mandatory';
+                slider.style.scrollBehavior = 'smooth';
+                startAutoSlide();
+            });
+
+            slider.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - slider.offsetLeft;
+                const walk = (x - startX) * 2; // Scroll-fast
+                slider.scrollLeft = scrollLeft - walk;
+            });
+            
+            // Touch support is native via overflow-x, but we need to pause timer
+            slider.addEventListener('touchstart', () => clearInterval(slideTimer));
+            slider.addEventListener('touchend', () => startAutoSlide());
+        });
+    </script>
+
+</body>
+</html>

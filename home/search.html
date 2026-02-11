@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜尋結果 | H.Collection</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">H.COLLECTION</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">首頁</a></li>
+                    <li><a href="#">客廳系列</a></li>
+                    <li><a href="#">臥室家具</a></li>
+                    <li><a href="#">廚房用品</a></li>
+                    <li><a href="#">裝飾配件</a></li>
+                </ul>
+                <div class="nav-icons">
+                    <a href="search.html"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    <a href="login.html"><i class="fa-solid fa-user"></i></a>
+                    <a href="checkout.html"><i class="fa-solid fa-cart-shopping"></i> (0)</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="搜尋家居商品..." value="沙發">
+            <button type="button" class="btn" style="padding: 12px 30px;">搜尋</button>
+        </div>
+
+        <!-- Search Info -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; padding-bottom: 15px; border-bottom: 2px solid var(--border-color);">
+            <div>
+                <h2 style="color: var(--primary-color); margin-bottom: 8px;">
+                    搜尋結果: <span style="color: var(--accent-color);">"沙發"</span>
+                </h2>
+                <p style="color: #888; font-size: 14px;">找到 16 件商品</p>
+            </div>
+            <div style="display: flex; gap: 10px; align-items: center;">
+                <span style="color: #666; font-size: 14px;">排序:</span>
+                <select class="form-control" style="width: auto; padding: 8px 12px;">
+                    <option>推薦排序</option>
+                    <option>價格由低到高</option>
+                    <option>價格由高到低</option>
+                    <option>最新上架</option>
+                    <option>熱門商品</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Filter & Products -->
+        <div style="display: grid; grid-template-columns: 250px 1fr; gap: 40px;">
+            <!-- Left Filter -->
+            <div>
+                <div style="background: var(--light-beige); padding: 25px; border-radius: 8px;">
+                    <h3 style="margin-bottom: 20px; color: var(--primary-color); font-size: 18px;">
+                        <i class="fa-solid fa-filter"></i> 篩選條件
+                    </h3>
+
+                    <!-- Category Filter -->
+                    <div style="margin-bottom: 30px;">
+                        <h4 style="margin-bottom: 15px; font-size: 15px; color: var(--primary-color);">商品分類</h4>
+                        <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px; cursor: pointer; font-size: 14px;">
+                            <input type="checkbox" checked>
+                            <span>客廳系列 (8)</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px; cursor: pointer; font-size: 14px;">
+                            <input type="checkbox">
+                            <span>臥室家具 (3)</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px; cursor: pointer; font-size: 14px;">
+                            <input type="checkbox">
+                            <span>書房辦公 (5)</span>
+                        </label>
+                    </div>
+
+                    <!-- Price Filter -->
+                    <div style="margin-bottom: 30px;">
+                        <h4 style="margin-bottom: 15px; font-size: 15px; color: var(--primary-color);">價格區間</h4>
+                        <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px; cursor: pointer; font-size: 14px;">
+                            <input type="checkbox">
+                            <span>NT$ 0 - 5,000 (2)</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px; cursor: pointer; font-size: 14px;">
+                            <input type="checkbox">
+                            <span>NT$ 5,000 - 10,000 (6)</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px; cursor: pointer; font-size: 14px;">
+                            <input type="checkbox" checked>
+                            <span>NT$ 10,000 - 20,000 (5)</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px; cursor: pointer; font-size: 14px;">
+                            <input type="checkbox">
+                            <span>NT$ 20,000 以上 (3)</span>
+                        </label>
+                    </div>
+
+                    <!-- Color Filter -->
+                    <div style="margin-bottom: 30px;">
+                        <h4 style="margin-bottom: 15px; font-size: 15px; color: var(--primary-color);">顏色</h4>
+                        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
+                            <div style="width: 40px; height: 40px; background: #D3D3D3; border-radius: 50%; cursor: pointer; border: 3px solid var(--accent-color);"></div>
+                            <div style="width: 40px; height: 40px; background: #696969; border-radius: 50%; cursor: pointer; border: 3px solid transparent;"></div>
+                            <div style="width: 40px; height: 40px; background: #F5F5DC; border-radius: 50%; cursor: pointer; border: 3px solid transparent;"></div>
+                            <div style="width: 40px; height: 40px; background: #8B7355; border-radius: 50%; cursor: pointer; border: 3px solid transparent;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Material Filter -->
+                    <div style="margin-bottom: 20px;">
+                        <h4 style="margin-bottom: 15px; font-size: 15px; color: var(--primary-color);">材質</h4>
+                        <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px; cursor: pointer; font-size: 14px;">
+                            <input type="checkbox">
+                            <span>實木 (8)</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px; cursor: pointer; font-size: 14px;">
+                            <input type="checkbox" checked>
+                            <span>布料 (12)</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px; cursor: pointer; font-size: 14px;">
+                            <input type="checkbox">
+                            <span>皮革 (4)</span>
+                        </label>
+                    </div>
+
+                    <button class="btn btn-outline" style="width: 100%; padding: 10px; font-size: 14px;">
+                        <i class="fa-solid fa-rotate-left"></i> 重置篩選
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right Products Grid -->
+            <div>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <a href="product.html">
+                            <div class="product-image">
+                                <img src="https://placehold.co/400x400/F5DEB3/8B4513?text=Nordic+Sofa" alt="北歐三人布沙發">
+                                <span style="position: absolute; top: 15px; left: 15px; background: var(--accent-color); color: white; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">熱銷</span>
+                            </div>
+                        </a>
+                        <div class="product-info">
+                            <h3>北歐三人布沙發</h3>
+                            <p class="product-desc">簡約舒適 | 200cm</p>
+                            <div class="product-price">NT$ 18,800</div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <a href="#">
+                            <div class="product-image">
+                                <img src="https://placehold.co/400x400/E5D4B5/8B4513?text=L-Shape+Sofa" alt="L型布藝沙發">
+                            </div>
+                        </a>
+                        <div class="product-info">
+                            <h3>L型布藝沙發</h3>
+                            <p class="product-desc">大空間首選 | 可拆洗</p>
+                            <div class="product-price">NT$ 28,600</div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <a href="#">
+                            <div class="product-image">
+                                <img src="https://placehold.co/400x400/DEB887/8B4513?text=Double+Sofa" alt="雙人皮革沙發">
+                                <span style="position: absolute; top: 15px; left: 15px; background: #dc3545; color: white; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">限時優惠</span>
+                            </div>
+                        </a>
+                        <div class="product-info">
+                            <h3>雙人皮革沙發</h3>
+                            <p class="product-desc">義大利皮革 | 高級質感</p>
+                            <div class="product-price">
+                                <span style="text-decoration: line-through; color: #999; font-size: 14px; margin-right: 8px;">NT$ 32,000</span>
+                                NT$ 24,800
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <a href="#">
+                            <div class="product-image">
+                                <img src="https://placehold.co/400x400/D2B48C/8B4513?text=Modern+Sofa" alt="現代簡約沙發">
+                            </div>
+                        </a>
+                        <div class="product-info">
+                            <h3>現代簡約沙發</h3>
+                            <p class="product-desc">莫蘭迪色系 | 180cm</p>
+                            <div class="product-price">NT$ 16,500</div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <a href="#">
+                            <div class="product-image">
+                                <img src="https://placehold.co/400x400/F5DEB3/A0826D?text=Velvet+Sofa" alt="絨布復古沙發">
+                                <span style="position: absolute; top: 15px; left: 15px; background: #28a745; color: white; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">新品</span>
+                            </div>
+                        </a>
+                        <div class="product-info">
+                            <h3>絨布復古沙發</h3>
+                            <p class="product-desc">法式優雅 | 金色腳架</p>
+                            <div class="product-price">NT$ 22,800</div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <a href="#">
+                            <div class="product-image">
+                                <img src="https://placehold.co/400x400/E5D4B5/8B6F47?text=Modular+Sofa" alt="模組沙發組">
+                            </div>
+                        </a>
+                        <div class="product-info">
+                            <h3>模組沙發組</h3>
+                            <p class="product-desc">自由組合 | 多色可選</p>
+                            <div class="product-price">NT$ 19,900</div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <a href="#">
+                            <div class="product-image">
+                                <img src="https://placehold.co/400x400/DEB887/8B6F47?text=Recliner+Sofa" alt="電動躺椅沙發">
+                            </div>
+                        </a>
+                        <div class="product-info">
+                            <h3>電動躺椅沙發</h3>
+                            <p class="product-desc">可調節角度 | USB充電</p>
+                            <div class="product-price">NT$ 35,600</div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <a href="#">
+                            <div class="product-image">
+                                <img src="https://placehold.co/400x400/C8B8A0/8B6F47?text=Single+Sofa" alt="單人休閒沙發">
+                            </div>
+                        </a>
+                        <div class="product-info">
+                            <h3>單人休閒沙發</h3>
+                            <p class="product-desc">輕鬆移動 | 小空間適用</p>
+                            <div class="product-price">NT$ 8,800</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div style="display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 50px;">
+                    <button class="btn btn-outline" style="padding: 10px 16px; font-size: 14px;">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button class="btn" style="padding: 10px 16px; font-size: 14px; background: var(--primary-color);">1</button>
+                    <button class="btn btn-outline" style="padding: 10px 16px; font-size: 14px;">2</button>
+                    <button class="btn btn-outline" style="padding: 10px 16px; font-size: 14px;">3</button>
+                    <button class="btn btn-outline" style="padding: 10px 16px; font-size: 14px;">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>關於我們</h4>
+                    <ul>
+                        <li>品牌理念</li>
+                        <li>門市據點</li>
+                        <li>設計師團隊</li>
+                        <li>企業合作</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>客戶服務</h4>
+                    <ul>
+                        <li>配送與安裝</li>
+                        <li>退換貨須知</li>
+                        <li>保固說明</li>
+                        <li>常見問題</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>聯絡我們</h4>
+                    <ul>
+                        <li>Email: service@hcollection.com</li>
+                        <li>電話: 02-2345-6789</li>
+                        <li>營業時間: 週一至週日 11:00-20:00</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>追蹤我們</h4>
+                    <ul>
+                        <li><i class="fa-brands fa-facebook"></i> Facebook</li>
+                        <li><i class="fa-brands fa-instagram"></i> Instagram</li>
+                        <li><i class="fa-brands fa-pinterest"></i> Pinterest</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2026 H.Collection. All rights reserved. | 用心打造每一個家的溫度
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

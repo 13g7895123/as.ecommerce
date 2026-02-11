@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G.Collection - 生活雜貨選物店</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">G.COLLECTION</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">首頁</a></li>
+                    <li><a href="#">廚房用品</a></li>
+                    <li><a href="#">文具雜貨</a></li>
+                    <li><a href="#">收納整理</a></li>
+                    <li><a href="#">生活配件</a></li>
+                </ul>
+                <div class="nav-icons">
+                    <a href="search.html"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    <a href="login.html"><i class="fa-solid fa-user"></i></a>
+                    <a href="checkout.html"><i class="fa-solid fa-cart-shopping"></i> (0)</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Carousel -->
+    <section class="container" style="margin-top: 30px;">
+        <div class="carousel-container">
+            <div class="carousel" id="carousel">
+                <div class="carousel-slide" style="background: linear-gradient(135deg, #9CAF88 0%, #FFF8E7 100%);">
+                    <h2>生活美學，從細節開始</h2>
+                    <p>精選日本、北歐、台灣設計師品牌，為您打造質感生活空間</p>
+                </div>
+                <div class="carousel-slide" style="background: linear-gradient(135deg, #D4A574 0%, #FFF8E7 100%);">
+                    <h2>廚房好物特輯</h2>
+                    <p>讓料理變得更有趣，用精緻的廚具享受烹飪時光</p>
+                </div>
+                <div class="carousel-slide" style="background: linear-gradient(135deg, #8B7355 0%, #FFF8E7 100%);">
+                    <h2>文具控必逛</h2>
+                    <p>日系文具、手帳本、鋼筆墨水，記錄每一個美好瞬間</p>
+                </div>
+            </div>
+            <button class="carousel-btn prev" onclick="prevSlide()">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="carousel-btn next" onclick="nextSlide()">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="container">
+        <h2 class="section-title">熱門分類</h2>
+        <div class="categories-grid">
+            <div class="category-card">
+                <div class="category-image">
+                    <img src="https://placehold.co/400x300/9CAF88/FFF?text=Kitchen+Items" alt="廚房用品">
+                </div>
+                <div class="category-info">
+                    <h3>廚房用品</h3>
+                    <p>鍋具、餐具、料理道具</p>
+                </div>
+            </div>
+            <div class="category-card">
+                <div class="category-image">
+                    <img src="https://placehold.co/400x300/D4A574/FFF?text=Stationery" alt="文具雜貨">
+                </div>
+                <div class="category-info">
+                    <h3>文具雜貨</h3>
+                    <p>筆記本、鋼筆、紙膠帶</p>
+                </div>
+            </div>
+            <div class="category-card">
+                <div class="category-image">
+                    <img src="https://placehold.co/400x300/8B7355/FFF?text=Storage" alt="收納整理">
+                </div>
+                <div class="category-info">
+                    <h3>收納整理</h3>
+                    <p>收納盒、整理箱、掛架</p>
+                </div>
+            </div>
+            <div class="category-card">
+                <div class="category-image">
+                    <img src="https://placehold.co/400x300/556B2F/FFF?text=Life+Style" alt="生活配件">
+                </div>
+                <div class="category-info">
+                    <h3>生活配件</h3>
+                    <p>香氛、擺飾、日用品</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section class="container">
+        <h2 class="section-title">人氣商品</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <a href="product.html">
+                    <div class="product-image">
+                        <img src="https://placehold.co/400x400/E8E5E0/556B2F?text=Cast+Iron+Pot" alt="鑄鐵鍋">
+                    </div>
+                </a>
+                <div class="product-info">
+                    <h3>琺瑯鑄鐵鍋 22cm</h3>
+                    <p class="product-desc">法式經典 | 多色可選</p>
+                    <div class="product-price">NT$ 3,280</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <a href="#">
+                    <div class="product-image">
+                        <img src="https://placehold.co/400x400/FFF8E7/8B7355?text=Notebook" alt="筆記本">
+                    </div>
+                </a>
+                <div class="product-info">
+                    <h3>日系方格筆記本</h3>
+                    <p class="product-desc">A5 | 100 頁</p>
+                    <div class="product-price">NT$ 280</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <a href="#">
+                    <div class="product-image">
+                        <img src="https://placehold.co/400x400/D4A574/FFF?text=Storage+Box" alt="收納盒">
+                    </div>
+                </a>
+                <div class="product-info">
+                    <h3>藤編收納籃組</h3>
+                    <p class="product-desc">天然材質 | 3 入組</p>
+                    <div class="product-price">NT$ 860</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <a href="#">
+                    <div class="product-image">
+                        <img src="https://placehold.co/400x400/9CAF88/FFF?text=Mug+Set" alt="馬克杯">
+                    </div>
+                </a>
+                <div class="product-info">
+                    <h3>手作陶瓷馬克杯</h3>
+                    <p class="product-desc">職人手工 | 獨一無二</p>
+                    <div class="product-price">NT$ 680</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <a href="#">
+                    <div class="product-image">
+                        <img src="https://placehold.co/400x400/E8E5E0/8B7355?text=Pen+Set" alt="鋼筆組">
+                    </div>
+                </a>
+                <div class="product-info">
+                    <h3>鋼筆墨水禮盒組</h3>
+                    <p class="product-desc">日本製 | 5 色組合</p>
+                    <div class="product-price">NT$ 1,580</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <a href="#">
+                    <div class="product-image">
+                        <img src="https://placehold.co/400x400/FFF8E7/556B2F?text=Cutting+Board" alt="砧板">
+                    </div>
+                </a>
+                <div class="product-info">
+                    <h3>橡木砧板組</h3>
+                    <p class="product-desc">實木 | 大中小 3 件組</p>
+                    <div class="product-price">NT$ 1,280</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <a href="#">
+                    <div class="product-image">
+                        <img src="https://placehold.co/400x400/D4A574/FFF?text=Candle" alt="香氛蠟燭">
+                    </div>
+                </a>
+                <div class="product-info">
+                    <h3>天然大豆蠟燭</h3>
+                    <p class="product-desc">手工製作 | 多種香味</p>
+                    <div class="product-price">NT$ 580</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <a href="#">
+                    <div class="product-image">
+                        <img src="https://placehold.co/400x400/9CAF88/FFF?text=Utensils" alt="餐具組">
+                    </div>
+                </a>
+                <div class="product-info">
+                    <h3>北歐風餐具組</h3>
+                    <p class="product-desc">6 人份 | 極簡設計</p>
+                    <div class="product-price">NT$ 2,180</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>關於我們</h4>
+                    <ul>
+                        <li>品牌故事</li>
+                        <li>實體門市</li>
+                        <li>設計師合作</li>
+                        <li>媒體報導</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>客戶服務</h4>
+                    <ul>
+                        <li>配送方式</li>
+                        <li>退換貨政策</li>
+                        <li>付款方式</li>
+                        <li>常見問題</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>聯絡我們</h4>
+                    <ul>
+                        <li>Email: hello@gcollection.com</li>
+                        <li>電話: 02-3456-7890</li>
+                        <li>營業時間: 週一至週日 10:00-21:00</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>追蹤我們</h4>
+                    <ul>
+                        <li><i class="fa-brands fa-facebook"></i> Facebook</li>
+                        <li><i class="fa-brands fa-instagram"></i> Instagram</li>
+                        <li><i class="fa-brands fa-pinterest"></i> Pinterest</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2026 G.Collection. All rights reserved. | 用心挑選，為生活增添溫度
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const carousel = document.getElementById('carousel');
+        let currentSlide = 0;
+        const totalSlides = 3;
+        let autoSlideInterval;
+        let isUserInteracting = false;
+
+        // Clone first slide and append to end for infinite loop
+        const firstSlide = carousel.children[0].cloneNode(true);
+        carousel.appendChild(firstSlide);
+
+        function updateCarousel(smooth = true) {
+            if (!smooth) {
+                carousel.style.scrollBehavior = 'auto';
+            } else {
+                carousel.style.scrollBehavior = 'smooth';
+            }
+            carousel.scrollLeft = currentSlide * carousel.offsetWidth;
+        }
+
+        function nextSlide() {
+            isUserInteracting = true;
+            currentSlide++;
+            updateCarousel();
+            
+            if (currentSlide === totalSlides) {
+                setTimeout(() => {
+                    currentSlide = 0;
+                    updateCarousel(false);
+                }, 500);
+            }
+            
+            resetAutoSlide();
+            setTimeout(() => { isUserInteracting = false; }, 600);
+        }
+
+        function prevSlide() {
+            isUserInteracting = true;
+            if (currentSlide === 0) {
+                currentSlide = totalSlides;
+                updateCarousel(false);
+                setTimeout(() => {
+                    currentSlide--;
+                    updateCarousel();
+                }, 10);
+            } else {
+                currentSlide--;
+                updateCarousel();
+            }
+            
+            resetAutoSlide();
+            setTimeout(() => { isUserInteracting = false; }, 600);
+        }
+
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(() => {
+                if (!isUserInteracting) {
+                    nextSlide();
+                }
+            }, 5000);
+        }
+
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            startAutoSlide();
+        }
+
+        // Drag to scroll
+        let isDragging = false;
+        let startPos = 0;
+        let currentTranslate = 0;
+        let prevTranslate = 0;
+
+        carousel.addEventListener('mousedown', dragStart);
+        carousel.addEventListener('touchstart', dragStart);
+        carousel.addEventListener('mouseup', dragEnd);
+        carousel.addEventListener('touchend', dragEnd);
+        carousel.addEventListener('mousemove', drag);
+        carousel.addEventListener('touchmove', drag);
+        carousel.addEventListener('mouseleave', () => {
+            if (isDragging) dragEnd();
+        });
+
+        function dragStart(e) {
+            isDragging = true;
+            isUserInteracting = true;
+            startPos = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+            carousel.style.scrollBehavior = 'auto';
+            carousel.style.cursor = 'grabbing';
+        }
+
+        function drag(e) {
+            if (!isDragging) return;
+            e.preventDefault();
+            const currentPosition = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+            const diff = currentPosition - startPos;
+            carousel.scrollLeft = currentSlide * carousel.offsetWidth - diff;
+        }
+
+        function dragEnd() {
+            if (!isDragging) return;
+            isDragging = false;
+            carousel.style.cursor = 'grab';
+            
+            const movedBy = carousel.scrollLeft - (currentSlide * carousel.offsetWidth);
+            
+            if (Math.abs(movedBy) > carousel.offsetWidth / 4) {
+                if (movedBy < 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+            } else {
+                updateCarousel();
+            }
+            
+            setTimeout(() => { isUserInteracting = false; }, 300);
+        }
+
+        // Start auto-slide on load
+        startAutoSlide();
+    </script>
+
+</body>
+</html>

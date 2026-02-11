@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>經典羊毛大衣 | S.Collection</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">S.COLLECTION</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">首頁</a></li>
+                    <li><a href="#">新品上市</a></li>
+                    <li><a href="#">男裝</a></li>
+                    <li><a href="#">女裝</a></li>
+                    <li><a href="#">配件</a></li>
+                </ul>
+                <div class="nav-icons">
+                    <a href="search.html"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    <a href="login.html"><i class="fa-solid fa-user"></i></a>
+                    <a href="checkout.html"><i class="fa-solid fa-cart-shopping"></i> (0)</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Product Detail -->
+    <section class="container">
+        <!-- Breadcrumb -->
+        <div style="padding: 20px 0; font-size: 14px; color: #888;">
+            <a href="index.html">首頁</a> > <a href="#">女裝</a> > <a href="#">外套</a> > 經典羊毛大衣
+        </div>
+
+        <div class="product-detail">
+            <!-- Left: Images -->
+            <div class="gallery">
+                <div class="gallery-main">
+                    <img src="https://placehold.co/800x1000/f5f5f5/333?text=Product+Hero" alt="Product Image">
+                </div>
+                <!-- Thumbnails (Optional) -->
+                <div style="display: flex; gap: 10px; margin-top: 20px;">
+                    <div style="width: 80px; height: 100px; background: #eee;">
+                        <img src="https://placehold.co/80x100/f5f5f5/333" style="width:100%; height:100%; object-fit:cover">
+                    </div>
+                    <div style="width: 80px; height: 100px; background: #eee;">
+                        <img src="https://placehold.co/80x100/e5e5e5/333" style="width:100%; height:100%; object-fit:cover">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Info -->
+            <div class="product-info-col">
+                <div class="product-meta">
+                    <h1>經典羊毛大衣</h1>
+                    <div style="font-size: 14px; color: #888; margin-bottom: 20px;">貨號: #COAT-2026-001</div>
+                    <div class="price-lg">NT$ 3,280</div>
+                    <p style="margin-bottom: 30px;">
+                        採用頂級美麗諾羊毛混紡，保暖而不厚重。經典雙排扣設計，修飾身形，不僅適合上班通勤，更是約會穿搭的最佳選擇。
+                    </p>
+                </div>
+
+                <form action="checkout.html">
+                    <div class="product-options">
+                        <div class="option-group">
+                            <label>顏色</label>
+                            <div style="display: flex;">
+                                <div class="size-btn active">駝色</div>
+                                <div class="size-btn">黑色</div>
+                                <div class="size-btn">深藍</div>
+                            </div>
+                        </div>
+
+                        <div class="option-group">
+                            <label>尺寸</label>
+                            <div style="display: flex;">
+                                <div class="size-btn">S</div>
+                                <div class="size-btn active">M</div>
+                                <div class="size-btn">L</div>
+                                <div class="size-btn">XL</div>
+                            </div>
+                        </div>
+
+                        <div class="option-group">
+                            <label>數量</label>
+                            <input type="number" value="1" min="1" class="qty-input">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn" style="width: 100%; padding: 15px;">加入購物車</button>
+                    <button type="button" class="btn btn-outline" style="width: 100%; margin-top: 10px; padding: 15px;">♡ 收藏商品</button>
+                </form>
+
+                <div class="description">
+                    <h3 style="margin-bottom: 15px;">商品規格</h3>
+                    <ul style="list-style: disc; margin-left: 20px; font-size: 15px; color: #555;">
+                        <li>材質：80% 羊毛, 20% 聚酯纖維</li>
+                        <li>洗滌方式：乾洗</li>
+                        <li>內裡：有</li>
+                        <li>製造產地：台灣</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="container">
+        <h2 class="section-title">猜你喜歡</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <a href="#">
+                    <div class="product-image">
+                        <img src="https://placehold.co/400x500/f0f0f0/333?text=Scarf" alt="Related">
+                    </div>
+                </a>
+                <div class="product-info">
+                    <h3>羊絨圍巾</h3>
+                    <div class="product-price">NT$ 980</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <a href="#">
+                    <div class="product-image">
+                        <img src="https://placehold.co/400x500/f0f0f0/333?text=Beret" alt="Related">
+                    </div>
+                </a>
+                <div class="product-info">
+                    <h3>法式貝雷帽</h3>
+                    <div class="product-price">NT$ 450</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <a href="#">
+                    <div class="product-image">
+                        <img src="https://placehold.co/400x500/f0f0f0/333?text=Boots" alt="Related">
+                    </div>
+                </a>
+                <div class="product-info">
+                    <h3>真皮短靴</h3>
+                    <div class="product-price">NT$ 2,580</div>
+                </div>
+            </div>
+            <!-- Spacer to push grid if needed or just 3 items -->
+            <div></div> 
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>關於我們</h4>
+                    <ul>
+                        <li>品牌故事</li>
+                        <li>實體店面</li>
+                        <li>人才招募</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>客戶服務</h4>
+                    <ul>
+                        <li>運送說明</li>
+                        <li>退換貨政策</li>
+                        <li>尺碼指南</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>聯絡我們</h4>
+                    <ul>
+                        <li>Email: service@scollection.com</li>
+                        <li>Tel: 02-1234-5678</li>
+                        <li>Mon-Fri: 10am - 7pm</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2026 S.Collection. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
