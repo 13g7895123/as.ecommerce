@@ -1,0 +1,86 @@
+:root {
+  --primary-color: #556B2F;
+  --secondary-color: #6B8E23;
+  --accent-color: #D4A574;
+  --text-color: #333;
+  --bg-color: #FAFAF8;
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* General specific hero section */
+.hero {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  padding: 120px 0;
+  text-align: center;
+  color: white;
+  margin-bottom: 60px;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  opacity: 0.95;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* General category styles */
+.category-section {
+  margin: 60px 0;
+}
+
+.category-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.category-header h2 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.category-header p {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+/* Product filter bar */
+.filter-bar {
+  background: white;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  margin-bottom: 40px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.filter-bar select {
+  padding: 12px 20px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.filter-bar select:hover,
+.filter-bar select:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}

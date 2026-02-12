@@ -1,196 +1,145 @@
-# E-Commerce Backend Project
+# E-commerce Project
 
-基于 CodeIgniter 4 和 Docker 的电商后端系统。
+多品牌電商平台專案，包含時尚、家居、雜貨三個子品牌。
 
-## 项目结构
+## 📁 專案結構
 
 ```
-.
-├── backend/                # CodeIgniter 4 应用程序
-│   ├── app/               # 应用代码
-│   ├── public/            # Web 根目录
-│   └── ...
-├── docker/                # Docker 配置
-│   ├── envs/             # 环境配置文件
-│   ├── nginx/            # Nginx 配置
-│   ├── php/              # PHP Dockerfile
-│   └── docker-compose.yml
-└── scripts/              # 管理脚本
-    ├── deploy.sh         # 部署脚本
-    ├── migrate.sh        # 数据库迁移
-    └── seed.sh           # 数据填充
+04_ecommerce/
+├── demo/                    # 靜態網站展示版本（HTML/CSS/JS）
+│   ├── fashion/            # S.Collection - 時尚服飾網站
+│   ├── home/               # H.Collection - 家居用品網站
+│   └── general/            # G.Collection - 生活雜貨網站
+│
+├── frontend/               # Nuxt 3 前端應用（使用 Bun）
+│   ├── apps/              # 各品牌獨立應用
+│   │   ├── fashion/       # 時尚網站（port 3000）
+│   │   ├── home/          # 家居網站（port 3001）
+│   │   └── general/       # 雜貨網站（port 3002）
+│   ├── layers/            # 共用層
+│   │   ├── base/          # 基礎元件、composables、types
+│   │   └── auth/          # 認證相關
+│   ├── packages/          # 共用套件
+│   │   ├── shared-types/  # TypeScript 類型定義
+│   │   └── api-client/    # API 客戶端
+│   └── package.json       # Monorepo 根配置
+│
+└── worktrees/             # Git worktrees（後端開發分支）
+    └── backend/           # 後端 API 開發
 ```
 
-## 快速开始
+## 🚀 快速開始
 
-### 1. 启动开发环境
+### Demo 版本（靜態網站）
+
+靜態 HTML 網站，可直接在瀏覽器開啟：
 
 ```bash
-# 启动所有服务
-./scripts/deploy.sh
+# 使用任意 HTTP 服務器運行
+cd demo/fashion
+python -m http.server 8000
 
-# 运行数据库迁移
-./scripts/migrate.sh
-
-# 填充测试数据
-./scripts/seed.sh
+# 或使用 live-server
+npx live-server demo/fashion
 ```
 
-### 2. 访问服务
+### Frontend（Nuxt 3）
 
-- **Web 应用**: http://localhost:8080
-- **PhpMyAdmin**: http://localhost:8082
-- **MySQL**: localhost:3307
-
-默认数据库连接：
-- 用户名: `root`
-- 密码: `root`
-- 数据库: `ecommerce`
-
-## 常用命令
-
-### 服务管理
+使用 Bun 作為套件管理器和運行環境：
 
 ```bash
-./scripts/deploy.sh                 # 启动开发环境
-./scripts/deploy.sh production      # 启动生产环境
-./scripts/deploy.sh down            # 停止服务
-./scripts/deploy.sh logs            # 查看日志
-./scripts/deploy.sh ps              # 查看服务状态
-./scripts/deploy.sh restart         # 重启服务
+cd frontend
+
+# 安裝依賴
+bun install
+
+# 開發模式 - 運行所有應用
+bun run dev
+
+# 開發模式 - 運行單一應用
+bun run dev:fashion   # http://localhost:3000
+bun run dev:home      # http://localhost:3001
+bun run dev:general   # http://localhost:3002
+
+# 建置生產版本
+bun run build
+
+# 生成靜態網站
+bun run generate
 ```
 
-### 数据库管理
+## 🎨 品牌設計
+
+### S.Collection - 時尚服飾
+- 主色：黑色 #333
+- 強調色：金色 #c49b63
+- 風格：奢華、專業
+
+### H.Collection - 家居用品
+- 主色：棕色 #8B4513
+- 強調色：米色 #F5F5DC
+- 風格：溫暖、舒適
+
+### G.Collection - 生活雜貨
+- 主色：橄欖綠 #556B2F
+- 強調色：金色 #D4A574
+- 風格：自然、實用
+
+## 🛠️ 技術棧
+
+### Demo 版本
+- HTML5
+- CSS3（Grid, Flexbox）
+- Vanilla JavaScript
+- Font Awesome 6.4.0
+
+### Frontend
+- **Framework**: Nuxt 3.21.1
+- **Runtime**: Bun 1.3.2
+- **Build Tool**: Turborepo 2.8.6
+- **State**: Pinia
+- **Styling**: Tailwind CSS
+- **TypeScript**: 5.9.3
+- **Icons**: Font Awesome
+- **Utils**: VueUse
+
+## 📦 Monorepo 管理
+
+使用 Turborepo 管理多應用建置：
 
 ```bash
-# 迁移
-./scripts/migrate.sh                # 运行迁移
-./scripts/migrate.sh rollback       # 回滚迁移
-./scripts/migrate.sh status         # 查看迁移状态
+# 建置所有應用
+bun run build
 
-# 填充数据
-./scripts/seed.sh                   # 运行默认填充器
-./scripts/seed.sh UserSeeder        # 运行指定填充器
+# 清理快取
+turbo clean
+
+# 查看建置圖
+turbo run build --graph
 ```
 
-## 环境配置
+## 🔧 開發工具
 
-环境配置文件位于 `docker/envs/`：
+### Git Worktrees
 
-- `development.env` - 开发环境
-- `production.env` - 生产环境
-
-### 修改端口
-
-编辑对应环境的配置文件：
-
-```env
-# =====================================
-# External Ports (对外端口)
-# =====================================
-NGINX_PORT=8080
-PHPMYADMIN_PORT=8082
-MYSQL_PORT=3307
-```
-
-## 开发工作流
-
-### 创建新功能
+後端開發使用獨立的 worktree：
 
 ```bash
-# 1. 确保服务运行
-./scripts/deploy.sh
+# 切換到後端分支
+cd worktrees/backend
 
-# 2. 创建迁移文件
-docker exec -it $(docker compose -f docker/docker-compose.yml ps -q php) \
-  php spark make:migration CreateUsersTable
-
-# 3. 编辑迁移文件
-# backend/app/Database/Migrations/YYYY-MM-DD-HHMMSS_CreateUsersTable.php
-
-# 4. 运行迁移
-./scripts/migrate.sh
-
-# 5. 创建填充器（可选）
-docker exec -it $(docker compose -f docker/docker-compose.yml ps -q php) \
-  php spark make:seeder UserSeeder
-
-# 6. 运行填充器
-./scripts/seed.sh UserSeeder
+# 回到主專案
+cd ../../
 ```
 
-### 重置数据库
+### VS Code 建議擴充
 
-```bash
-# 回滚所有迁移并重新运行
-./scripts/migrate.sh refresh
+- Vue - Official
+- Tailwind CSS IntelliSense
+- TypeScript Vue Plugin (Volar)
+- ESLint
+- Prettier
 
-# 重新填充数据
-./scripts/seed.sh
-```
+## 📝 License
 
-## 生产环境部署
-
-```bash
-# 1. 编辑生产环境配置
-nano docker/envs/production.env
-
-# 2. 启动生产环境
-./scripts/deploy.sh production
-
-# 3. 运行迁移
-./scripts/migrate.sh production
-
-# 4. （可选）填充初始数据
-./scripts/seed.sh production InitialSeeder
-```
-
-## 技术栈
-
-- **PHP**: 8.2
-- **Framework**: CodeIgniter 4.7
-- **Web Server**: Nginx (Alpine)
-- **Database**: MySQL 8.0
-- **Container**: Docker & Docker Compose
-
-## 文档
-
-详细文档请参阅：
-
-- [Docker 配置文档](docker/README.md)
-- [脚本使用说明](scripts/README.md)
-- [CodeIgniter 4 文档](https://codeigniter.com/user_guide/)
-
-## 故障排除
-
-### 端口冲突
-
-如果遇到端口被占用的错误，编辑环境配置文件修改端口：
-
-```bash
-nano docker/envs/development.env
-```
-
-### 容器未启动
-
-```bash
-# 查看服务状态
-./scripts/deploy.sh ps
-
-# 查看日志
-./scripts/deploy.sh logs
-
-# 重启服务
-./scripts/deploy.sh restart
-```
-
-### 权限问题
-
-```bash
-# 给脚本添加执行权限
-chmod +x scripts/*.sh
-```
-
-## License
-
-MIT License
+Private Project

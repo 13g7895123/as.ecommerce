@@ -1,0 +1,11 @@
+[install]
+# 使用 Bun 安裝依賴
+auto-install = true
+
+[install.cache]
+# 啟用快取加速安裝
+dir = ".bun-cache"
+
+[run]
+# Bun 執行時設定
+bun = true
